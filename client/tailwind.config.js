@@ -6,6 +6,10 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: { 
+        "inter": ['Inter', 'sans-serif'],
+        "cabin" : ['Cabin', 'sans-serif'],
+    },
       colors:
       {
         'my-orange': {
