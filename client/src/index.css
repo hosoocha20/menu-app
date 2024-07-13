@@ -22,6 +22,11 @@
 }
 
 .home-bg-img{
-  background-image: url("assets/mesh-647.png")
+  background-image: url("assets/bbblurry.svg");
+  background-size: 100%;
+}
+.solution-bg-img{
+  background-image: url("assets/mesh-920.png");
+  background-size: 100%;
 }
 

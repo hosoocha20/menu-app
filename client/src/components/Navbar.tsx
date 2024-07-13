@@ -55,7 +55,7 @@ const Navbar = () => {
         className={` flex justify-between items-center  h-full px-1 rounded-[2rem]`}
       >
         <div className="flex-1  ml-[1rem] font-cabin text-gun-powder-950 text-[1.2rem] font-[500]">
-          MenuNow
+          SmartMenu
         </div>
         <div className="flex-1   flex justify-center gap-[3.2rem] tracking-wider font-[400] text-[0.95rem] text-my-black-950">
           <p className=" px-2">About</p>
