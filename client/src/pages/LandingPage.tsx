@@ -5,8 +5,7 @@ import { Outlet } from 'react-router-dom'
 const LandingPage = () => {
   return (
     <>
-        <Navbar position='sticky'/>
-        <Navbar position='static'/>
+        <Navbar />
         <Outlet />
     </>
 

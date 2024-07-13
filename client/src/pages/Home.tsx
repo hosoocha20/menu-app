@@ -8,7 +8,7 @@ import easySVG from "../assets/easy.svg";
 const Home = () => {
   return (
     <div className="h-[200vh] font-inter mt-[-4.5rem]">
-      <div className="h-[100vh] w-full bg-my-orange-10 flex flex-col items-center gap-[2rem] pt-[5rem]">
+      <div className="h-[100vh] home-bg-img w-full bg-my-orange-10 flex flex-col items-center gap-[2rem] pt-[5rem]">
         <h1 className="text-[3rem] text-gun-powder-950 text-center mt-[4.5rem]">
           Boost Efficiency, Delight Customers, Enhance Your{" "}
           <span className="block">Service with MenuNow</span>
@@ -29,7 +29,7 @@ const Home = () => {
         </h2>
         <div className="flex text-center  justify-center gap-[6rem]">
           <div className="flex flex-col w-[20rem] gap-4 items-center text-gun-powder-950">
-            <img src={timeSVG} className="w-[10vw]" />
+            <img src={timeSVG} className="w-[8vw]" />
             <p className="font-[600]">Reduce wait times</p>
             <p>
               Our digital menu solution allows customers to order directly from
@@ -37,12 +37,12 @@ const Home = () => {
             </p>
           </div>
           <div className="flex flex-col w-[20rem] gap-4 items-center text-gun-powder-950">
-            <img src={efficiencySVG} className="w-[10vw]" />
+            <img src={efficiencySVG} className="w-[8vw]" />
             <p className="font-[600]">Increased Efficiency</p>
             <p>Streamline operations and reduce labor costs.</p>
           </div>
           <div className="flex flex-col  w-[20rem] gap-4 items-center text-gun-powder-950">
-            <img src={easySVG} className="w-[10vw]" />
+            <img src={easySVG} className="w-[8vw]" />
             <p className="font-[600]">Easy to use</p>
             <p>User-friendly system for a smooth ordering experience.</p>
           </div>
