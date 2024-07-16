@@ -12,8 +12,10 @@ import { IoMdCellular } from "react-icons/io";
 import { IoIosWifi } from "react-icons/io";
 import { IoBatteryFull } from "react-icons/io5";
 import { LuScanLine } from "react-icons/lu";
-
+import { HiBellAlert } from "react-icons/hi2";
+import { VscQuestion } from "react-icons/vsc";
 const Home = () => {
+    const foodMenuKioskImgArr = ["food1.jpg","food2.jpg","food3.jpg","food4.jpg","food5.jpg","food6.jpg","food7.jpg","food8.jpg","food9.jpg"]
   return (
     <div className=" font-inter mt-[-4.5rem]">
       <div className="h-[100vh] home-bg-img w-full bg-white flex  pl-[13vw] gap-[2rem] pt-[5rem]">
@@ -75,7 +77,7 @@ const Home = () => {
               <p className="text-center">We offer two convenient ways to order:</p> */}
             <div className="absolute top-[-60px]  h-full overflow-hidden  left-[5vw]">
               <div className="h-full w-max overflow-hidden  rounded  px-[2rem] ">
-                <div className="w-[300px] h-[550px]  rounded-[2rem] p-[0.95rem] bg-[#1f1f1f]">
+                <div className="w-[300px] h-[550px]  rounded-[2rem] p-[0.5rem] pl-[0.7rem] bg-[#1f1f1f] iphone-rim">
                   <div className=" flex flex-col items-center gap-[1rem]  w-full h-full rounded-[1.5rem] iphone bg-gun-powder-600">
                     <div className="iphone-screen-top">
                       <p className="text-sm font-[500]">7.53</p>
@@ -103,17 +105,18 @@ const Home = () => {
               </div>
             </div>
             <div className=" w-[600px] h-max ml-[10vw] mt-[5vh] flex flex-col gap-[1rem]">
-                
-                <h3 className="font-cabin text-[2.5rem] font-[600] text-gun-powder-950">I. QR Code</h3>
-                <p>
-                  Scan the QR code at your table to access our mobile-optimized
-                  ordering platform using a device.
-                </p>
-                <p>
-                  Allow your customers to use their own device to scan the QR
-                  code to connect to the digitlized menu designated to the
-                  specific table.
-                </p>
+              <h3 className="font-cabin text-[2.5rem] font-[600] text-gun-powder-950">
+                I. QR Code
+              </h3>
+              <p>
+                Scan the QR code at your table to access our mobile-optimized
+                ordering platform using a device.
+              </p>
+              <p>
+                Allow your customers to use their own device to scan the QR code
+                to connect to the digitlized menu designated to the specific
+                table.
+              </p>
             </div>
           </div>
           {/* <ul className="list-disc list-inside">
@@ -127,39 +130,46 @@ const Home = () => {
               </li>
             </ul> */}
         </div>
-        <div className="h-[80%] px-[8rem] mt-[4rem] ">
+        <div className="h-[600px] px-[8rem] mt-[4rem] ">
           <div className="solution-bg-img h-full rounded-[2rem] pt-[3rem] px-[3rem]">
             {/* <h2 className="text-[2.5rem] text-center text-gun-powder-950 font-[600]">
                 Our Solution
               </h2>
               <p className="text-center">We offer two convenient ways to order:</p> */}
-            <div className="border  h-full overflow-hidden">
-              <div className="h-full w-max overflow-hidden border border-black rounded  px-[2rem] ">
-                <div className="w-[320px] h-[550px]  rounded-[2rem] p-[0.95rem] bg-[#1f1f1f]">
-                  <div className=" flex flex-col items-center gap-[1rem]  w-full h-full rounded-[1.5rem] iphone bg-gun-powder-600">
-                    <div className="iphone-screen-top">
-                      <p className="text-sm font-[500]">7.53</p>
-                      <div className="flex gap-1">
-                        <IoMdCellular />
-                        <IoIosWifi />
-                        <IoBatteryFull />
-                      </div>
+            <div className="border  h-full overflow-hidden ">
+              <div className="h-full w-max overflow-hidden border border-black rounded  px-[2rem] flex flex-col items-center">
+                <div className="w-[500px] h-[320px]  rounded-[1.2rem] p-[0.6rem] pr-[0.8rem] bg-[#1f1f1f] kiosk-rim">
+                  <div className="flex flex-col w-full h-full rounded-[0.7rem] tablet-kiosk bg-gun-powder-600 overflow-hidden">
+                    <div className="p-[10px] bg-gun-powder-800"></div>
+                    <div className="flex w-full h-full">
+                        <div className="w-[22%] border flex flex-col justify-between text-[0.5rem] bg-my-black-50">
+                          <div>
+                            <div className="p-[7px] border-b ">Mains</div>
+                            <div className="p-[7px] border-b">Salad and Sides</div>
+                            <div className="p-[7px] border-b">Lunch Set</div>
+                            <div className="p-[7px] border-b">Drinks</div>
+                            <div className="p-[7px] border-b">Desserts</div>
+                          </div>
+                          <div>
+                            <div className="p-[7px] border-t border-b">Your Orders</div>
+                            <div className="p-[7px]  flex">
+                              <HiBellAlert />
+                              <VscQuestion />
+                            </div>
+                          </div>
+                        </div>
+                        <div className="w-[58%] border grid grid-cols-5">
+                            {foodMenuKioskImgArr.map((imgSrc: string) => (
+                                <div>
+                                    <img src={`/${imgSrc}`}/>
+                                </div>
+                            ))}
+                        </div>
+                        <div className="w-[25%] border">order</div>
                     </div>
-                    <p className="text-white font-cabin font-[500] mt-[8rem]">
-                      Scan QR Code
-                    </p>
-                    <div className=" w-fit p-4 relative ">
-                      {/* <div className="absolute top-0 left-0 w-full h-full border-4 border-white"></div> */}
-                      <div className="absolute top-0 left-0 w-[15px] h-[15px] border-t-4 border-l-4 border-white"></div>
-                      <div className="absolute bottom-0 left-0 w-[15px] h-[15px] border-b-4 border-l-4 border-white"></div>
-                      <div className="absolute top-0 right-0 w-[15px] h-[15px] border-t-4 border-r-4 border-white"></div>
-                      <div className="absolute bottom-0 right-0 w-[15px] h-[15px] border-b-4 border-r-4 border-white"></div>
-                      <img src={qrCodePNG} className="w-[100px]" />
-                    </div>
-                    <i className="iphone-speaker">Speaker</i>
-                    <b className="iphone-camera">Camera</b>
                   </div>
                 </div>
+                <div className="w-[150px] h-[100px] bg-[#1f1f1f] mt-[1rem] rounded-[1.5rem] kiosk-stand"></div>
               </div>
             </div>
           </div>
