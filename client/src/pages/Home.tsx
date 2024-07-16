@@ -6,6 +6,12 @@ import efficiencySVG from "../assets/efficiency.svg";
 import easySVG from "../assets/easy.svg";
 import mealSVG from "../assets/family-meal-29.svg";
 import qrSVG from "../assets/qr-code-64.svg";
+import qrCodePNG from "../assets/qr-code-128.png";
+import qrIconSVG from "../assets/qr-icon2.svg";
+import { IoMdCellular } from "react-icons/io";
+import { IoIosWifi } from "react-icons/io";
+import { IoBatteryFull } from "react-icons/io5";
+import { LuScanLine } from "react-icons/lu";
 
 const Home = () => {
   return (
@@ -54,32 +60,120 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="h-screen px-[5rem] py-[4rem]">
-        <div className="solution-bg-img flex flex-col gap-[2rem] h-full rounded-[2rem] py-[3rem] px-[3rem]">
-            <h2 className="text-[2.5rem] text-center text-gun-powder-950 font-[600]">
-              Our Solution
-            </h2>
-            <p className="text-center">
-              We offer two convenient ways to order:
-            </p>
-            <div className="flex gap-[1rem]  h-full">
-                <div className="h-full w-[50%] rounded border bg-white">QR Code</div>
-                <div className="h-full w-[50%] rounded border bg-white flex justify-center">
-                    <img src={qrSVG} className="w-[60%]"/>
-                </div>
-                
-            </div>
+      <div className="border">
+        <div className="py-[4rem]">
+          <h2 className="text-[2.5rem] text-center text-gun-powder-950 font-[600]">
+            Our Solution
+          </h2>
+          <p className="text-center">We offer two convenient ways to order:</p>
         </div>
-        {/* <ul className="list-disc list-inside">
-          <li>
-            Dedicated Tabletop Kiosk: Enjoy the ease of ordering directly from a
-            device placed at each table.
-          </li>
-          <li>
-            QR Code Convenience: Scan the QR code at your table to access our
-            mobile-optimized ordering platform using your own device.
-          </li>
-        </ul> */}
+        <div className="h-[600px] px-[8rem] ">
+          <div className="solution-bg-img h-full rounded-[2rem] pt-[3rem] px-[3rem]  relative flex justify-center">
+            {/* <h2 className="text-[2.5rem] text-center text-gun-powder-950 font-[600]">
+                Our Solution
+              </h2>
+              <p className="text-center">We offer two convenient ways to order:</p> */}
+            <div className="absolute top-[-60px]  h-full overflow-hidden  left-[5vw]">
+              <div className="h-full w-max overflow-hidden  rounded  px-[2rem] ">
+                <div className="w-[300px] h-[550px]  rounded-[2rem] p-[0.95rem] bg-[#1f1f1f]">
+                  <div className=" flex flex-col items-center gap-[1rem]  w-full h-full rounded-[1.5rem] iphone bg-gun-powder-600">
+                    <div className="iphone-screen-top">
+                      <p className="text-sm font-[500]">7.53</p>
+                      <div className="flex gap-1">
+                        <IoMdCellular />
+                        <IoIosWifi />
+                        <IoBatteryFull />
+                      </div>
+                    </div>
+                    <p className="text-white font-cabin font-[500] mt-[8rem]">
+                      Scan QR Code
+                    </p>
+                    <div className=" w-fit p-4 relative ">
+                      {/* <div className="absolute top-0 left-0 w-full h-full border-4 border-white"></div> */}
+                      <div className="absolute top-0 left-0 w-[15px] h-[15px] border-t-4 border-l-4 border-white"></div>
+                      <div className="absolute bottom-0 left-0 w-[15px] h-[15px] border-b-4 border-l-4 border-white"></div>
+                      <div className="absolute top-0 right-0 w-[15px] h-[15px] border-t-4 border-r-4 border-white"></div>
+                      <div className="absolute bottom-0 right-0 w-[15px] h-[15px] border-b-4 border-r-4 border-white"></div>
+                      <img src={qrCodePNG} className="w-[100px]" />
+                    </div>
+                    <i className="iphone-speaker">Speaker</i>
+                    <b className="iphone-camera">Camera</b>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className=" w-[600px] h-max ml-[10vw] mt-[5vh] flex flex-col gap-[1rem]">
+                
+                <h3 className="font-cabin text-[2.5rem] font-[600] text-gun-powder-950">I. QR Code</h3>
+                <p>
+                  Scan the QR code at your table to access our mobile-optimized
+                  ordering platform using a device.
+                </p>
+                <p>
+                  Allow your customers to use their own device to scan the QR
+                  code to connect to the digitlized menu designated to the
+                  specific table.
+                </p>
+            </div>
+          </div>
+          {/* <ul className="list-disc list-inside">
+              <li>
+                Dedicated Tabletop Kiosk: Enjoy the ease of ordering directly from a
+                device placed at each table.
+              </li>
+              <li>
+                QR Code Convenience: Scan the QR code at your table to access our
+                mobile-optimized ordering platform using your own device.
+              </li>
+            </ul> */}
+        </div>
+        <div className="h-[80%] px-[8rem] mt-[4rem] ">
+          <div className="solution-bg-img h-full rounded-[2rem] pt-[3rem] px-[3rem]">
+            {/* <h2 className="text-[2.5rem] text-center text-gun-powder-950 font-[600]">
+                Our Solution
+              </h2>
+              <p className="text-center">We offer two convenient ways to order:</p> */}
+            <div className="border  h-full overflow-hidden">
+              <div className="h-full w-max overflow-hidden border border-black rounded  px-[2rem] ">
+                <div className="w-[320px] h-[550px]  rounded-[2rem] p-[0.95rem] bg-[#1f1f1f]">
+                  <div className=" flex flex-col items-center gap-[1rem]  w-full h-full rounded-[1.5rem] iphone bg-gun-powder-600">
+                    <div className="iphone-screen-top">
+                      <p className="text-sm font-[500]">7.53</p>
+                      <div className="flex gap-1">
+                        <IoMdCellular />
+                        <IoIosWifi />
+                        <IoBatteryFull />
+                      </div>
+                    </div>
+                    <p className="text-white font-cabin font-[500] mt-[8rem]">
+                      Scan QR Code
+                    </p>
+                    <div className=" w-fit p-4 relative ">
+                      {/* <div className="absolute top-0 left-0 w-full h-full border-4 border-white"></div> */}
+                      <div className="absolute top-0 left-0 w-[15px] h-[15px] border-t-4 border-l-4 border-white"></div>
+                      <div className="absolute bottom-0 left-0 w-[15px] h-[15px] border-b-4 border-l-4 border-white"></div>
+                      <div className="absolute top-0 right-0 w-[15px] h-[15px] border-t-4 border-r-4 border-white"></div>
+                      <div className="absolute bottom-0 right-0 w-[15px] h-[15px] border-b-4 border-r-4 border-white"></div>
+                      <img src={qrCodePNG} className="w-[100px]" />
+                    </div>
+                    <i className="iphone-speaker">Speaker</i>
+                    <b className="iphone-camera">Camera</b>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* <ul className="list-disc list-inside">
+              <li>
+                Dedicated Tabletop Kiosk: Enjoy the ease of ordering directly from a
+                device placed at each table.
+              </li>
+              <li>
+                QR Code Convenience: Scan the QR code at your table to access our
+                mobile-optimized ordering platform using your own device.
+              </li>
+            </ul> */}
+        </div>
       </div>
       <div className="h-[100vh] flex flex-col justify-center">
         <div className="flex flex-col justify-center  py-[3rem] bg-my-orange-50">
