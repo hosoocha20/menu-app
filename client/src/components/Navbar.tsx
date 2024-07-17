@@ -29,7 +29,6 @@ const Navbar = () => {
     else{
         animate(
             scope.current,
-            { backgroundColor: "transparent" },
             { duration: 0.8, ease: easeOut }
           );
     }
