@@ -15,7 +15,17 @@ import { LuScanLine } from "react-icons/lu";
 import { HiBellAlert } from "react-icons/hi2";
 import { VscQuestion } from "react-icons/vsc";
 const Home = () => {
-    const foodMenuKioskImgArr = ["food1.jpg","food2.jpg","food3.jpg","food4.jpg","food5.jpg","food6.jpg","food7.jpg","food8.jpg","food9.jpg"]
+  const foodMenuKioskImgArr = [
+    "food1.jpg",
+    "food2.jpg",
+    "food3.jpg",
+    "food4.jpg",
+    "food5.jpg",
+    "food6.jpg",
+    "food7.jpg",
+    "food8.jpg",
+    "food9.jpg",
+  ];
   return (
     <div className=" font-inter mt-[-4.5rem]">
       <div className="h-[100vh] home-bg-img w-full bg-white flex  pl-[13vw] gap-[2rem] pt-[5rem]">
@@ -62,8 +72,8 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="border">
-        <div className="py-[4rem]">
+      <div className="py-[4rem]">
+        <div className="pb-[4rem]">
           <h2 className="text-[2.5rem] text-center text-gun-powder-950 font-[600]">
             Our Solution
           </h2>
@@ -117,6 +127,7 @@ const Home = () => {
                 to connect to the digitlized menu designated to the specific
                 table.
               </p>
+              <button className="bg-my-mango-500 rounded-[1.5rem] w-max py-3 px-6 text-white text-[0.9rem] mt-[2.5rem]">Learn more</button>
             </div>
           </div>
           {/* <ul className="list-disc list-inside">
@@ -136,40 +147,72 @@ const Home = () => {
                 Our Solution
               </h2>
               <p className="text-center">We offer two convenient ways to order:</p> */}
-            <div className="border  h-full overflow-hidden ">
-              <div className="h-full w-max overflow-hidden border border-black rounded  px-[2rem] flex flex-col items-center">
-                <div className="w-[500px] h-[320px]  rounded-[1.2rem] p-[0.6rem] pr-[0.8rem] bg-[#1f1f1f] kiosk-rim">
+            <div className=" h-full  relative">
+              <div className="absolute top-[-150px] right-[5vw]  w-max overflow-hidden  rounded  px-[2rem] flex flex-col items-center">
+                <div className=" w-[500px] h-[320px]  rounded-[1.2rem] p-[0.6rem] pr-[0.8rem] bg-[#1f1f1f] kiosk-rim">
                   <div className="flex flex-col w-full h-full rounded-[0.7rem] tablet-kiosk bg-gun-powder-600 overflow-hidden">
-                    <div className="p-[10px] bg-gun-powder-800"></div>
+                    <div className="py-[8px] bg-[#151515] text-[0.35rem] text-white text-center">SmartMenu</div>
                     <div className="flex w-full h-full">
-                        <div className="w-[22%] border flex flex-col justify-between text-[0.5rem] bg-my-black-50">
-                          <div>
-                            <div className="p-[7px] border-b ">Mains</div>
-                            <div className="p-[7px] border-b">Salad and Sides</div>
-                            <div className="p-[7px] border-b">Lunch Set</div>
-                            <div className="p-[7px] border-b">Drinks</div>
-                            <div className="p-[7px] border-b">Desserts</div>
+                      <div className="w-[22%] border-r flex flex-col justify-between text-[0.5rem] bg-my-black-50">
+                        <div>
+                          <div className="p-[7px] border-b bg-my-black-800 text-white">Mains</div>
+                          <div className="p-[7px] border-b">
+                            Salad and Sides
                           </div>
-                          <div>
-                            <div className="p-[7px] border-t border-b">Your Orders</div>
-                            <div className="p-[7px]  flex">
-                              <HiBellAlert />
-                              <VscQuestion />
-                            </div>
+                          <div className="p-[7px] border-b">Lunch Set</div>
+                          <div className="p-[7px] border-b">Drinks</div>
+                          <div className="p-[7px] border-b">Desserts</div>
+                        </div>
+                        <div>
+                          <div className="p-[7px] border-t border-b">
+                            Your Orders
+                          </div>
+                          <div className="p-[7px]  flex justify-between items-center">
+                            <HiBellAlert />
+                            <VscQuestion />
                           </div>
                         </div>
-                        <div className="w-[58%] border grid grid-cols-5">
+                      </div>
+                      <div className="w-[55%] h-full bg-my-black-100">
+                          <div className=" h-max  grid grid-cols-5 gap-1 p-1 ">
                             {foodMenuKioskImgArr.map((imgSrc: string) => (
-                                <div>
-                                    <img src={`/${imgSrc}`}/>
-                                </div>
+                              <div className="p-1 rounded-md bg-white">
+                                <img src={`/${imgSrc}`} />
+                                <p className="text-[0.4rem] text-center mt-[1px]">
+                                  Pizza
+                                </p>
+                                <p className="text-[0.35rem] text-center">$20.00</p>
+                              </div>
                             ))}
+                          </div>
+                      </div>
+                      <div className="w-[23%]  bg-my-black-50 flex flex-col justify-between">
+                        <div className="text-[0.5rem] py-[5px] px-1">Your Order Cart</div>
+                        <div>
+                            <div className="text-[0.45rem] font-[600] py-[5px] px-1 flex justify-between">
+                                <span>Total</span>
+                                <span>$0.00</span>
+                            </div>
+                            <div className="text-[0.5rem] text-white text-center w-full bg-my-orange-400 border py-[7px]">Place Order</div>
                         </div>
-                        <div className="w-[25%] border">order</div>
+                      </div>
                     </div>
                   </div>
                 </div>
                 <div className="w-[150px] h-[100px] bg-[#1f1f1f] mt-[1rem] rounded-[1.5rem] kiosk-stand"></div>
+              </div>
+              <div className=" w-[600px] h-max ml-[10vw] mt-[5vh] flex flex-col gap-[1rem]">
+                <h3 className="font-cabin text-[2.5rem] font-[600] text-gun-powder-950">
+                  II. Kiosk
+                </h3>
+                <p>
+                  Enjoy the ease of ordering directly from a device placed at
+                  each table.
+                </p>
+                <p>
+                  Allow your customers to order directly from their table with a tap.
+                </p>
+                <button className="bg-my-mango-500 rounded-[1.5rem] w-max py-3 px-6 text-white text-[0.9rem] mt-[2.5rem]">Learn more</button>
               </div>
             </div>
           </div>
