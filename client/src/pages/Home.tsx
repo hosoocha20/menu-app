@@ -14,6 +14,9 @@ import { IoBatteryFull } from "react-icons/io5";
 import { LuScanLine } from "react-icons/lu";
 import { HiBellAlert } from "react-icons/hi2";
 import { VscQuestion } from "react-icons/vsc";
+import { MdHomeFilled } from "react-icons/md";
+import { TbClipboardText } from "react-icons/tb";
+import { PiShoppingCartBold } from "react-icons/pi";
 const Home = () => {
   const foodMenuKioskImgArr = [
     "food1.jpg",
@@ -26,6 +29,7 @@ const Home = () => {
     "food8.jpg",
     "food9.jpg",
   ];
+  const foodMenuPhoneArr = ["food1.jpg", "food6.jpg", "food7.jpg", "food8.jpg", "food9.jpg", "food3.jpg"]
   return (
     <div className=" font-inter mt-[-4.5rem]">
       <div className="h-[100vh] home-bg-img w-full bg-white flex  pl-[13vw] gap-[2rem] pt-[5rem]">
@@ -88,7 +92,7 @@ const Home = () => {
             <div className="absolute top-[-60px]  h-full overflow-hidden  left-[5vw]">
               <div className="h-full w-max overflow-hidden  rounded  px-[2rem] ">
                 <div className="w-[300px] h-[550px]  rounded-[2rem] p-[0.5rem] pl-[0.7rem] bg-[#1f1f1f] iphone-rim">
-                  <div className=" flex flex-col items-center gap-[1rem]  w-full h-full rounded-[1.5rem] iphone bg-gun-powder-600">
+                  <div className=" flex flex-col items-center gap-[1rem]  w-full h-full rounded-[1.5rem] iphone  bg-gun-powder-600 overflow-hidden">
                     <div className="iphone-screen-top">
                       <p className="text-sm font-[500]">7.53</p>
                       <div className="flex gap-1">
@@ -97,17 +101,58 @@ const Home = () => {
                         <IoBatteryFull />
                       </div>
                     </div>
-                    <p className="text-white font-cabin font-[500] mt-[8rem]">
-                      Scan QR Code
-                    </p>
-                    <div className=" w-fit p-4 relative home-qr-code-container">
-                      {/* <div className="absolute top-0 left-0 w-full h-full border-4 border-white"></div> */}
-                      <div className="absolute top-0 left-0 w-[15px] h-[15px] border-t-4 border-l-4 border-white home-qr-code-border-tl"></div>
-                      <div className="absolute bottom-0 left-0 w-[15px] h-[15px] border-b-4 border-l-4 border-white home-qr-code-border-bl"></div>
-                      <div className="absolute top-0 right-0 w-[15px] h-[15px] border-t-4 border-r-4 border-white home-qr-code-border-tr"></div>
-                      <div className="absolute bottom-0 right-0 w-[15px] h-[15px] border-b-4 border-r-4 border-white home-qr-code-border-br"></div>
-                      <img src={qrCodePNG} className="w-[100px]" />
+                    {/* Before Animation */}
+                    <div className="hidden">
+                        <p className="text-white font-cabin font-[500] mt-[8rem] text-center">
+                          Scan QR Code
+                        </p>
+                        <div className=" w-fit p-4 relative home-qr-code-container mt-[1rem]">
+                          {/* <div className="absolute top-0 left-0 w-full h-full border-4 border-white"></div> */}
+                          <div className="absolute top-0 left-0 w-[15px] h-[15px] border-t-4 border-l-4 border-white home-qr-code-border-tl"></div>
+                          <div className="absolute bottom-0 left-0 w-[15px] h-[15px] border-b-4 border-l-4 border-white home-qr-code-border-bl"></div>
+                          <div className="absolute top-0 right-0 w-[15px] h-[15px] border-t-4 border-r-4 border-white home-qr-code-border-tr"></div>
+                          <div className="absolute bottom-0 right-0 w-[15px] h-[15px] border-b-4 border-r-4 border-white home-qr-code-border-br"></div>
+                          <img src={qrCodePNG} className="w-[100px]" />
+                        </div>
                     </div>
+                    {/* After Animation */}
+                    <div className="mt-[1.5rem] w-full h-full flex flex-col">
+                        <div className="text-center bg-[#151515] text-[0.75rem] py-2 text-white">SmartMenu</div>
+                        <div className="flex-1 flex flex-col gap-[1rem] px-3 pt-4 bg-my-black-50 ">
+                            <h2 className="text-my-mango-600 font-[600]">Menu</h2>
+                            <div className="flex text-[0.75rem] gap-2">
+                                <div className="px-4 py-1 rounded-2xl bg-my-mango-500 text-white border border-my-mango-600 font-[600] ">Main</div>
+                                <div className="px-4 py-1 rounded-2xl bg-white border font-[600] text-my-black-950">Sides</div>
+                                <div className="px-4 py-1 rounded-2xl bg-white border font-[600] text-my-black-950">Lunch</div>
+                                <div className="px-4 py-1 rounded-2xl bg-white border font-[600] text-my-black-950">Drinks</div>
+                            </div>
+                            <div className="grid grid-cols-2 gap-3 px-1">
+                                {foodMenuPhoneArr.map((imgSrc: string) => (
+                                    <div className="bg-white rounded-lg font-[600] text-my-black-950 p-2 border text-center">
+                                        <img src={`/${imgSrc}`}/>
+                                        <p className="text-[0.75rem]">Pizza</p>
+                                        <p className="text-[0.7rem]">$20.00</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                    <div className="absolute bottom-0 left-0 flex border-t text-[1.3rem] w-full bg-white py-2 px-12 justify-between ">
+                            <div>
+                                <MdHomeFilled className="text-my-mango-500"/>
+                                <div className="w-[0.21rem] h-[0.21rem] rounded-full bg-my-mango-500 mx-auto my-0"></div>
+                            </div>
+                            <div>
+                                <TbClipboardText className="text-my-black-400"/>
+                                <div className="w-[0.21rem] h-[0.21rem] rounded-full bg-my-mango-500 mx-auto my-0 invisible"></div>
+                            </div>
+                            <div>
+                                <PiShoppingCartBold className="text-my-black-400"/>
+                                <div className="w-[0.21rem] h-[0.21rem] rounded-full bg-my-mango-500 mx-auto my-0 invisible"></div>
+                            </div>
+                            
+                    </div>
+                    {/* To Here */}
                     <i className="iphone-speaker">Speaker</i>
                     <b className="iphone-camera">Camera</b>
                   </div>
