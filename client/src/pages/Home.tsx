@@ -100,12 +100,12 @@ const Home = () => {
                     <p className="text-white font-cabin font-[500] mt-[8rem]">
                       Scan QR Code
                     </p>
-                    <div className=" w-fit p-4 relative ">
+                    <div className=" w-fit p-4 relative home-qr-code-container">
                       {/* <div className="absolute top-0 left-0 w-full h-full border-4 border-white"></div> */}
-                      <div className="absolute top-0 left-0 w-[15px] h-[15px] border-t-4 border-l-4 border-white"></div>
-                      <div className="absolute bottom-0 left-0 w-[15px] h-[15px] border-b-4 border-l-4 border-white"></div>
-                      <div className="absolute top-0 right-0 w-[15px] h-[15px] border-t-4 border-r-4 border-white"></div>
-                      <div className="absolute bottom-0 right-0 w-[15px] h-[15px] border-b-4 border-r-4 border-white"></div>
+                      <div className="absolute top-0 left-0 w-[15px] h-[15px] border-t-4 border-l-4 border-white home-qr-code-border-tl"></div>
+                      <div className="absolute bottom-0 left-0 w-[15px] h-[15px] border-b-4 border-l-4 border-white home-qr-code-border-bl"></div>
+                      <div className="absolute top-0 right-0 w-[15px] h-[15px] border-t-4 border-r-4 border-white home-qr-code-border-tr"></div>
+                      <div className="absolute bottom-0 right-0 w-[15px] h-[15px] border-b-4 border-r-4 border-white home-qr-code-border-br"></div>
                       <img src={qrCodePNG} className="w-[100px]" />
                     </div>
                     <i className="iphone-speaker">Speaker</i>
@@ -148,7 +148,7 @@ const Home = () => {
               </h2>
               <p className="text-center">We offer two convenient ways to order:</p> */}
             <div className=" h-full  relative">
-              <div className="absolute top-[-150px] right-[5vw]  w-max overflow-hidden  rounded  px-[2rem] flex flex-col items-center">
+              <div className="absolute top-[-200px] right-[5vw]  w-max overflow-hidden  rounded  px-[2rem] flex flex-col items-center">
                 <div className=" w-[500px] h-[320px]  rounded-[1.2rem] p-[0.6rem] pr-[0.8rem] bg-[#1f1f1f] kiosk-rim">
                   <div className="flex flex-col w-full h-full rounded-[0.7rem] tablet-kiosk bg-gun-powder-600 overflow-hidden">
                     <div className="py-[8px] bg-[#151515] text-[0.35rem] text-white text-center">SmartMenu</div>
