@@ -403,30 +403,32 @@ const Home = () => {
         </div>
       </div>
       <div className="h-[100vh] flex flex-col justify-center">
-        <div className="flex flex-col justify-center  py-[3rem] bg-my-orange-50">
-          <h2 className="text-center text-[2.9rem] text-gun-powder-950 w-[50vw] mx-auto my-0 leading-tight pb-[3rem]">
+        <div className="flex flex-col justify-center  py-[3rem] ">
+          <h2 className="text-[2.9rem] text-gun-powder-950 w-[50vw] mx-auto my-0 leading-tight pb-[3rem]">
             Enhance your customer experience while boosting efficiency with our
             digitalized table ordering solution.
           </h2>
-          <div className="flex text-center  justify-center gap-[6rem]">
-            <div className="flex flex-col w-[20rem] gap-4 items-center text-gun-powder-950">
-              <img src={timeSVG} className="w-[8vw]" />
-              <p className="font-[600]">Reduce wait times</p>
-              <p>
-                Our digital menu solution allows customers to order directly
+          <div className="flex   justify-center gap-[2rem] text-gun-powder-950">
+            <div className="flex flex-col w-[20rem] h-[28rem]   bg-[url('assets/mesh-gradientOR.png')] bg-cover bg-center px-5 py-5 border rounded-2xl my-bg-shadow">
+                <p className="font-[600]">Reduce wait times</p>
+              <img src={timeSVG} className="w-[7vw]  mt-[4rem] ml-2 " />
+              <p className="px-2">
+                Our service allows customers to order directly
                 from their table leading to faster service and happier
                 customers.
               </p>
             </div>
-            <div className="flex flex-col w-[20rem] gap-4 items-center text-gun-powder-950">
-              <img src={efficiencySVG} className="w-[8vw]" />
-              <p className="font-[600]">Increased Efficiency</p>
-              <p>Streamline operations and reduce labor costs.</p>
+            <div className="flex flex-col w-[20rem] h-[28rem]   bg-[url('assets/mesh-gradientM.png')] bg-cover bg-center px-5 py-5 border rounded-2xl my-bg-shadow">
+                <p className="font-[600]">Increased Efficiency</p>
+              <img src={efficiencySVG} className="w-[7vw]  mt-[4rem] ml-2" />
+              
+              <p className="px-2">Streamline operations and reduce labor costs.</p>
             </div>
-            <div className="flex flex-col  w-[20rem] gap-4 items-center text-gun-powder-950">
-              <img src={easySVG} className="w-[8vw]" />
-              <p className="font-[600]">Easy to use</p>
-              <p>User-friendly system for a smooth ordering experience.</p>
+            <div className="flex flex-col w-[20rem] h-[28rem]   bg-[url('assets/mesh-gradientPU.png')] bg-cover bg-center px-5 py-5 border rounded-2xl my-bg-shadow">
+                <p className="font-[600]">Easy to use</p>
+              <img src={easySVG} className="w-[7vw]  mt-[4rem] ml-2" />
+              
+              <p className="px-2">User-friendly system for a smooth ordering experience.</p>
             </div>
           </div>
         </div>

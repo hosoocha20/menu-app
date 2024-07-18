@@ -18,20 +18,7 @@ const Navbar = () => {
   const [scope, animate] = useAnimate();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
-    const prev = scrollY.getPrevious() || 0;
-    if (latest > 0) {
-      animate(
-        scope.current,
-        { backgroundColor: "#ffffff" },
-        { duration: 0.8, ease: easeIn }
-      );
-    }
-    else{
-        animate(
-            scope.current,
-            { duration: 0.8, ease: easeOut }
-          );
-    }
+    const prev = scrollY.getPrevious()!;
     if (latest > prev && latest > 150) {
       setHideNav(true);
     } else {
@@ -48,7 +35,7 @@ const Navbar = () => {
       }}
       animate={hideNav ? "hidden" : "visible"}
       transition={{ duration: 0.35, ease: easeInOut }}
-      className={` px-[5rem]  font-inter w-full h-[4.5rem] bg-transparent sticky top-0 z-50`}
+      className={` px-[5rem]  font-inter w-full h-[4.5rem]  sticky top-0 z-50 bg-white`}
     >
       <div
         className={` flex justify-between items-center  h-full px-1 rounded-[2rem]`}
