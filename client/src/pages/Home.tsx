@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { Component, useEffect, useRef, useState } from "react";
 import orderSVG from "../assets/order.svg";
 import tabletSVG from "../assets/tablet.svg";
 import timeSVG from "../assets/time.svg";
@@ -17,16 +17,37 @@ import { VscQuestion } from "react-icons/vsc";
 import { MdHomeFilled } from "react-icons/md";
 import { TbClipboardText } from "react-icons/tb";
 import { PiShoppingCartBold } from "react-icons/pi";
+
+//SVG Components
+import {
+  Adminf,
+  Brushf,
+  Controlf,
+  Customizef,
+  Kioskf,
+  Menuf,
+  Posf,
+  Qrf,
+} from "../ui/FeaturesIcon";
+
+
 import {
   motion,
   useAnimationControls,
   useInView,
   AnimatePresence,
 } from "framer-motion";
+
+interface OfferI {
+  svg: string;
+  heading: string;
+}
 const Home = () => {
+  //animation variables
   const controls = useAnimationControls();
   const qrAniRef = useRef(null);
   const qrAniIsInView = useInView(qrAniRef, { once: true });
+
   const foodMenuKioskImgArr = [
     "food1.jpg",
     "food2.jpg",
@@ -46,11 +67,38 @@ const Home = () => {
     "food9.jpg",
     "food3.jpg",
   ];
+  const offerArr: OfferI[] = [
+    { svg: "qrf", heading: "Digitally Avaliable" },
+    { svg: "kioskf", heading: "Kiosk Software" },
+    { svg: "menuf", heading: "Change your Menu at Anytime" },
+    { svg: "brushf", heading: "Design your Menu" },
+    { svg: "customizef", heading: "Customize Features" },
+    { svg: "controlf", heading: "Be in Control" },
+    { svg: "posf", heading: "Self PoS" },
+    { svg: "adminf", heading: "Employee PoS" },
+  ];
+  const components = [
+    Qrf,
+    Kioskf,
+    Menuf,
+    Brushf,
+    Customizef,
+    Controlf,
+    Posf,
+    Adminf,
+  ];
+  //Functions
+  const createComponent = (i: number) => {
+    const Component = components[i];
+    if (!Component) return <></>;
+
+    return <Component key={i} />;
+  };
+
+  //Animation Functions
   const qrAnimationSequence = async () => {
     await controls.start("startQr");
     return await controls.start("fadeOutQr");
-    
-    
   };
   useEffect(() => {
     console.log("Element is in view: ", qrAniIsInView);
@@ -118,7 +166,21 @@ const Home = () => {
             <div className="absolute top-[-60px]  h-full overflow-hidden  left-[5vw]">
               <div className="h-full w-max overflow-hidden  rounded  px-[2rem] ">
                 <div className="w-[300px] h-[550px]  rounded-[2rem] p-[0.5rem] pl-[0.7rem] bg-[#1f1f1f] iphone-rim">
-                  <motion.div animate={controls} variants={{fadeOutQr: {background: ["linear-gradient(60deg, #7371ee 1%,#a1d9d6 100%)","#2f2f2f","#222222","#151515"]}}} transition={ {duration: 1, ease: "linear"}} className=" flex flex-col items-center gap-[1rem]  w-full h-full rounded-[1.5rem] iphone  bg-gun-powder-600 overflow-hidden ">
+                  <motion.div
+                    animate={controls}
+                    variants={{
+                      fadeOutQr: {
+                        background: [
+                          "linear-gradient(60deg, #7371ee 1%,#a1d9d6 100%)",
+                          "#2f2f2f",
+                          "#222222",
+                          "#151515",
+                        ],
+                      },
+                    }}
+                    transition={{ duration: 1, ease: "linear" }}
+                    className=" flex flex-col items-center gap-[1rem]  w-full h-full rounded-[1.5rem] iphone  bg-gun-powder-600 overflow-hidden "
+                  >
                     <div className="iphone-screen-top">
                       <p className="text-sm font-[500]">7.53</p>
                       <div className="flex gap-1">
@@ -131,9 +193,9 @@ const Home = () => {
                     <motion.div
                       animate={controls}
                       variants={{
-                        fadeOutQr: { opacity: 0 }
+                        fadeOutQr: { opacity: 0 },
                       }}
-                      transition={{ duration: 1 , ease: "easeOut"}}
+                      transition={{ duration: 1, ease: "easeOut" }}
                       className="z-1 opacity-1"
                     >
                       <p className="text-white font-cabin font-[500] mt-[8rem] text-center">
@@ -272,7 +334,7 @@ const Home = () => {
             </div>
             <div className=" w-[600px] h-max ml-[10vw] mt-[5vh] flex flex-col gap-[1rem]">
               <h3 className="font-cabin text-[2.5rem] font-[600] text-gun-powder-950">
-                I. QR Code
+                01 QR Code
               </h3>
               <p>
                 Scan the QR code at your table to access our mobile-optimized
@@ -374,7 +436,7 @@ const Home = () => {
               </div>
               <div className=" w-[600px] h-max ml-[10vw] mt-[5vh] flex flex-col gap-[1rem]">
                 <h3 className="font-cabin text-[2.5rem] font-[600] text-gun-powder-950">
-                  II. Kiosk
+                  02 Kiosk
                 </h3>
                 <p>
                   Enjoy the ease of ordering directly from a device placed at
@@ -408,33 +470,59 @@ const Home = () => {
             Enhance your customer experience while boosting efficiency with our
             digitalized table ordering solution.
           </h2>
-          <div className="flex   justify-center gap-[2rem] text-gun-powder-950">
-            <div className="flex flex-col w-[20rem] h-[24rem]   bg-[url('assets/mesh-gradientOR.png')] bg-cover bg-center px-7 py-5 border rounded-2xl my-bg-shadow">
+          <div className="flex   justify-center gap-[1rem] text-gun-powder-950">
+            <div className="flex flex-col w-[22rem] h-[24rem]   bg-[url('assets/mesh-gradientOR.png')] bg-cover bg-center px-7 py-5 border rounded-2xl my-bg-shadow">
               <img src={timeSVG} className="w-[6rem]  " />
-              <p className="font-[600] text-[1.1rem] mt-[10vh]">Reduce wait times</p>
+              <p className="font-[600] text-[1.1rem] mt-[10vh]">
+                Reduce wait times
+              </p>
               <p className="text-[0.875rem] mt-[0.5rem]">
-                Our service allows customers to order directly
-                from their table leading to faster service and happier
-                customers.
+                Our service allows customers to order directly from their table
+                leading to faster service and happier customers.
               </p>
             </div>
-            <div className="flex flex-col w-[20rem] h-[24rem]   bg-[url('assets/mesh-gradientM.png')] bg-cover bg-center px-7 py-5 border rounded-2xl my-bg-shadow">
-                
+            <div className="flex flex-col w-[22rem] h-[24rem]   bg-[url('assets/mesh-gradientM.png')] bg-cover bg-center px-7 py-5 border rounded-2xl my-bg-shadow">
               <img src={efficiencySVG} className="w-[6rem]" />
-              <p className="font-[600] text-[1.1rem] mt-[10vh]">Increased efficiency</p>
-              <p className="text-[0.875rem] mt-[0.5rem]">Streamline operations and reduce labor costs.</p>
+              <p className="font-[600] text-[1.1rem] mt-[10vh]">
+                Increased efficiency
+              </p>
+              <p className="text-[0.875rem] mt-[0.5rem]">
+                Streamline operations and reduce labor costs.
+              </p>
             </div>
-            <div className="flex flex-col w-[20rem] h-[24rem]]   bg-[url('assets/mesh-gradientPU.png')] bg-cover bg-center px-7 py-5 border rounded-2xl my-bg-shadow">
-                
+            <div className="flex flex-col w-[22rem] h-[24rem]]   bg-[url('assets/mesh-gradientPU.png')] bg-cover bg-center px-7 py-5 border rounded-2xl my-bg-shadow">
               <img src={easySVG} className="w-[6rem]" />
               <p className="font-[600] text-[1.1rem] mt-[10vh]">Easy to use</p>
-              <p className="text-[0.875rem] mt-[0.5rem]">User-friendly system for a smooth ordering experience.</p>
+              <p className="text-[0.875rem] mt-[0.5rem]">
+                User-friendly system for a smooth ordering experience.
+              </p>
             </div>
           </div>
         </div>
       </div>
-      <div className="border h-screen">
-            <h2>What we Offer</h2>
+      <div className=" h-screen flex flex-col">
+        <h2 className="text-center py-[2rem] text-[1.7rem] ">What we Offer</h2>
+        <div className="grid grid-cols-4 px-[10rem] flex-1 gap-3">
+          {offerArr.map((item: OfferI, i: number) => (
+            <div className="rounded-2xl relative group flex flex-col items-center pt-[30%] gap-[2rem] hover:bg-my-black-950  cursor-pointer transition-[background-color] duration-300 ease-out ">
+              <div className="group-hover:fill-white fill-my-black-950 w-[3.5rem] translate-y-0 group-hover:translate-y-[-0.2rem] will-change-transform transition-[transform] duration-300 ease-in-out delay-75 ">
+                {createComponent(i)}
+              </div>
+              {/* <div className="group-hover:text-white text-my-black-950"><IoMdCellular /></div> */}
+              {/* <div className="group-hover:text-white text-my-black-950 group-hover:fill-white">
+              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" ><path d="M480-512q-44.55 0-75.27-30.72Q374-573.45 374-618.33q0-44.89 30.73-75.28Q435.45-724 480-724t75.27 30.39Q586-663.22 586-618.33q0 44.88-30.73 75.61Q524.55-512 480-512ZM212-258v-22.67q0-22.66 13.83-41.83 13.84-19.17 36.84-30.17Q319-378 373.15-391q54.14-13 106.83-13t106.85 13q54.17 13 110.15 38.6 23.46 10.8 37.24 29.94Q748-303.33 748-280.67V-258q0 10.83-7.58 18.42Q732.83-232 722-232H238q-10.83 0-18.42-7.58Q212-247.17 212-258Zm24 2h488v-24.67q0-14.66-10.17-28.16-10.16-13.5-28.5-23.17-50-24.33-101.35-36.17Q532.63-380 480-380t-104.31 11.83Q324-356.33 274.67-332q-18.34 9.67-28.5 23.17Q236-295.33 236-280.67V-256Zm244-280q34.33 0 58.17-23.83Q562-583.67 562-618t-23.83-58.17Q514.33-700 480-700t-58.17 23.83Q398-652.33 398-618t23.83 58.17Q445.67-536 480-536Zm0-82Zm0 362Z"/></svg>
+              </div> */}
+
+              <h4 className="px-4 text-[1.1rem] text-my-black-950 group-hover:text-transparent tracking-wider translate-y-0 group-hover:translate-y-[-0.3rem] will-change-transform transition-[transform] duration-300 ease-in-out delay-75">
+                {item.heading}
+              </h4>
+              <p className="absolute w-full text-center px-[25%] top-[50%] left-[50%] translate-x-[-50%] translate-y-[0.3rem] text-transparent tracking-wide group-hover:text-white group-hover:translate-y-[0] transition duration-300 ease-in-out delay-75">
+                Your customers can access the menu on their own device at any
+                time, without any app install.
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
       <div className="h-screen">
         <h2>Learn more about our key features</h2>
