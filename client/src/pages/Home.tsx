@@ -409,29 +409,32 @@ const Home = () => {
             digitalized table ordering solution.
           </h2>
           <div className="flex   justify-center gap-[2rem] text-gun-powder-950">
-            <div className="flex flex-col w-[20rem] h-[28rem]   bg-[url('assets/mesh-gradientOR.png')] bg-cover bg-center px-5 py-5 border rounded-2xl my-bg-shadow">
-                <p className="font-[600]">Reduce wait times</p>
-              <img src={timeSVG} className="w-[7vw]  mt-[4rem] ml-2 " />
-              <p className="px-2">
+            <div className="flex flex-col w-[20rem] h-[24rem]   bg-[url('assets/mesh-gradientOR.png')] bg-cover bg-center px-7 py-5 border rounded-2xl my-bg-shadow">
+              <img src={timeSVG} className="w-[6rem]  " />
+              <p className="font-[600] text-[1.1rem] mt-[10vh]">Reduce wait times</p>
+              <p className="text-[0.875rem] mt-[0.5rem]">
                 Our service allows customers to order directly
                 from their table leading to faster service and happier
                 customers.
               </p>
             </div>
-            <div className="flex flex-col w-[20rem] h-[28rem]   bg-[url('assets/mesh-gradientM.png')] bg-cover bg-center px-5 py-5 border rounded-2xl my-bg-shadow">
-                <p className="font-[600]">Increased Efficiency</p>
-              <img src={efficiencySVG} className="w-[7vw]  mt-[4rem] ml-2" />
-              
-              <p className="px-2">Streamline operations and reduce labor costs.</p>
+            <div className="flex flex-col w-[20rem] h-[24rem]   bg-[url('assets/mesh-gradientM.png')] bg-cover bg-center px-7 py-5 border rounded-2xl my-bg-shadow">
+                
+              <img src={efficiencySVG} className="w-[6rem]" />
+              <p className="font-[600] text-[1.1rem] mt-[10vh]">Increased efficiency</p>
+              <p className="text-[0.875rem] mt-[0.5rem]">Streamline operations and reduce labor costs.</p>
             </div>
-            <div className="flex flex-col w-[20rem] h-[28rem]   bg-[url('assets/mesh-gradientPU.png')] bg-cover bg-center px-5 py-5 border rounded-2xl my-bg-shadow">
-                <p className="font-[600]">Easy to use</p>
-              <img src={easySVG} className="w-[7vw]  mt-[4rem] ml-2" />
-              
-              <p className="px-2">User-friendly system for a smooth ordering experience.</p>
+            <div className="flex flex-col w-[20rem] h-[24rem]]   bg-[url('assets/mesh-gradientPU.png')] bg-cover bg-center px-7 py-5 border rounded-2xl my-bg-shadow">
+                
+              <img src={easySVG} className="w-[6rem]" />
+              <p className="font-[600] text-[1.1rem] mt-[10vh]">Easy to use</p>
+              <p className="text-[0.875rem] mt-[0.5rem]">User-friendly system for a smooth ordering experience.</p>
             </div>
           </div>
         </div>
+      </div>
+      <div className="border h-screen">
+            <h2>What we Offer</h2>
       </div>
       <div className="h-screen">
         <h2>Learn more about our key features</h2>
