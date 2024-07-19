@@ -37,6 +37,7 @@ import {
   useInView,
   AnimatePresence,
 } from "framer-motion";
+import ViewmoreUI from "../ui/ViewMoreUI";
 
 interface OfferI {
   svg: string;
@@ -500,9 +501,9 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className=" h-screen flex flex-col">
-        <h2 className="text-center py-[2rem] text-[1.7rem] text-my-black-950  font-light">What we Offer</h2>
-        <div className="grid grid-cols-4 px-[10rem] flex-1 gap-3">
+      <div className=" h-screen flex flex-col bg-my-black-10">
+        <h2 className="text-center py-[5rem] text-[1.7rem] text-my-black-950  font-light">What we Offer</h2>
+        <div className="grid grid-cols-4 px-[10vw] flex-1 gap-3">
           {offerArr.map((item: OfferI, i: number) => (
             <div className="rounded-2xl relative group flex flex-col items-center pt-[30%] gap-[2rem] hover:bg-my-black-950  cursor-pointer transition-[background-color] duration-300 ease-out ">
               <div className="group-hover:fill-white fill-my-black-950 w-[3.5rem] translate-y-0 group-hover:translate-y-[-0.2rem] will-change-transform transition-[transform] duration-300 ease-in-out delay-75 ">
@@ -524,8 +525,10 @@ const Home = () => {
           ))}
         </div>
       </div>
+      <ViewmoreUI tag="Enhance your service" body="Learn more about our features"/>
+
       <div className="h-screen">
-        <h2>Learn more about our key features</h2>
+        <h2>How to get started</h2>
       </div>
     </div>
   );
