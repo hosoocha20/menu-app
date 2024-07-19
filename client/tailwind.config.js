@@ -9,6 +9,7 @@ export default {
       fontFamily: { 
         "inter": ['Inter', 'sans-serif'],
         "cabin" : ['Cabin', 'sans-serif'],
+        "cabin-condensed" : ["Cabin Condensed", "sans-serif"]
     },
       colors:
       {
