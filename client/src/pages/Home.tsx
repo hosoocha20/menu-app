@@ -5,8 +5,8 @@ import timeSVG from "../assets/time.svg";
 import efficiencySVG from "../assets/efficiency.svg";
 import easySVG from "../assets/easy.svg";
 import mealSVG from "../assets/family-meal-29.svg";
-import smartMeal from "../assets/family-meal-1.svg"
-import smartDevice from "../assets/smartDevice2.svg"
+import smartMeal from "../assets/family-meal-1.svg";
+import smartDevice from "../assets/smartDevice2.svg";
 import qrSVG from "../assets/qr-code-64.svg";
 import qrCodePNG from "../assets/qr-code-128.png";
 import qrIconSVG from "../assets/qr-icon2.svg";
@@ -39,6 +39,7 @@ import {
   AnimatePresence,
 } from "framer-motion";
 import ViewmoreUI from "../ui/ViewMoreUI";
+import LinkUI from "../ui/LinkUI";
 
 interface OfferI {
   svg: string;
@@ -166,7 +167,9 @@ const Home = () => {
               enhance the dining experience for both customers and restaurants.
             </p>
             <p>
-              Reduce your costs, increase your efficiency, save the planet - economy - sustainable - no need to print/laminate your menu every menu change. We are economically responsible.
+              Reduce your costs, increase your efficiency, save the planet -
+              economy - sustainable - no need to print/laminate your menu every
+              menu change. We are economically responsible.
             </p>
             <button className="border border-my-black-950 bg-my-black-950 rounded-3xl w-[11rem] py-3 mt-[3.2rem] text-white">
               Get Started Now
@@ -175,7 +178,11 @@ const Home = () => {
           <img src={smartDevice} className="w-[40%]" />
         </div>
       </div>
-      <ViewmoreUI tag="About us" body="Learn more about what we do" bgColor="bg-[#ffffff]"/>
+      <ViewmoreUI
+        tag="About us"
+        body="Learn more about what we do"
+        bgColor="bg-[#ffffff]"
+      />
       <hr className="border w-[70%] mx-auto my-0 border-[#f3f3f3]"></hr>
       <div className="pt-[6rem]  ">
         <div className="pb-[4rem]">
@@ -372,12 +379,9 @@ const Home = () => {
                 to connect to the digitlized menu designated to the specific
                 table.
               </p>
-              <button
-                ref={qrAniRef}
-                className="bg-my-mango-500 rounded-[1.5rem] w-max py-3 px-6 text-white text-[0.9rem] mt-[2.5rem]"
-              >
-                Learn more
-              </button>
+              <div ref={qrAniRef} className=" w-max mt-[2.5rem]">
+                <LinkUI />
+              </div>
             </div>
           </div>
           {/* <ul className="list-disc list-inside">
@@ -528,9 +532,15 @@ const Home = () => {
         </div>
       </div>
       <div className=" h-screen flex flex-col bg-my-black-10">
-        <h2 className="text-center py-[5rem] text-[1.7rem] text-my-black-950  font-light">
-          What we Offer
+
+        <div className="py-[5rem] text-center w-full flex flex-col gap-[1rem]">
+        <h2 className="font-cabin uppercase font-medium text-my-black-300 text-[0.92rem] tracking-[0.3em] ">
+          Our Features
         </h2>
+        <p className=" text-[1.7rem] text-my-black-950  font-light ">
+          What we Offer
+        </p>
+        </div>
         <div className="grid grid-cols-4 px-[10vw] flex-1 gap-3">
           {offerArr.map((item: OfferI, i: number) => (
             <div className="rounded-2xl relative group flex flex-col items-center pt-[30%] gap-[2rem] hover:bg-my-black-950  cursor-pointer transition-[background-color] duration-300 ease-out ">
