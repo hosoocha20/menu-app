@@ -465,13 +465,13 @@ const Home = () => {
             </ul> */}
         </div>
       </div>
-      <div className="h-[100vh] flex flex-col justify-center">
-        <div className="flex flex-col justify-center  py-[3rem] ">
-          <h2 className="text-[2.9rem] text-gun-powder-950 w-[50vw] mx-auto my-0 leading-tight pb-[3rem]">
+      <div className="h-[100vh] flex flex-col justify-center items-center">
+        <div className="flex flex-col  w-max py-[3rem] gap-[3rem]">
+          <h2 className="text-[2.9rem] text-gun-powder-950 w-[50vw]  leading-tight  ">
             Enhance your customer experience while boosting efficiency with our
             digitalized table ordering solution.
           </h2>
-          <div className="flex   justify-center gap-[1rem] text-gun-powder-950">
+          <div className="flex  justify-center gap-[1rem] text-gun-powder-950 w-max">
             <div className="flex flex-col w-[22rem] h-[24rem]   bg-[url('assets/mesh-gradientOR.png')] bg-cover bg-center px-7 py-5 border rounded-2xl my-bg-shadow">
               <img src={timeSVG} className="w-[6rem]  " />
               <p className="font-[600] text-[1.1rem] mt-[10vh]">
