@@ -5,6 +5,8 @@ import timeSVG from "../assets/time.svg";
 import efficiencySVG from "../assets/efficiency.svg";
 import easySVG from "../assets/easy.svg";
 import mealSVG from "../assets/family-meal-29.svg";
+import smartMeal from "../assets/family-meal-1.svg"
+import smartDevice from "../assets/smartDevice2.svg"
 import qrSVG from "../assets/qr-code-64.svg";
 import qrCodePNG from "../assets/qr-code-128.png";
 import qrIconSVG from "../assets/qr-icon2.svg";
@@ -29,7 +31,6 @@ import {
   Posf,
   Qrf,
 } from "../ui/FeaturesIcon";
-
 
 import {
   motion,
@@ -125,11 +126,11 @@ const Home = () => {
         </div>
         <img src={orderSVG} className="w-[35%]" />
       </div>
-      <div className="h-[100vh] py-[2rem] px-[3rem]">
-        <div className=" h-full rounded-3xl py-[3rem] px-[5rem]  w-full flex gap-[8rem]">
-          <img src={mealSVG} className="w-[40%]" />
+      <div className=" py-[2rem] px-[8rem] w-full flex justify-center items-center ">
+        <div className="flex gap-[8rem]  w-[80%]  ">
+          <img src={smartMeal} className="w-[45%]" />
           <div className="flex flex-col gap-[1.5rem] pt-[8rem]">
-            <h2 className="border border-my-mango-400 bg-my-mango-400 text-white w-max p-2 rounded">
+            <h2 className="font-cabin uppercase font-medium text-my-black-300 text-[0.92rem] tracking-[0.3em]">
               {" "}
               What is SmartMenu
             </h2>
@@ -145,13 +146,38 @@ const Home = () => {
               orders, and complete payments without the need for waitstaff
               intervention.
             </p>
-            <button className="border border-my-black-950 bg-my-black-950 rounded-3xl w-[11rem] py-3  text-white">
+            <button className="border border-my-black-950 bg-my-black-950 rounded-3xl w-[11rem] py-3 mt-[3.2rem] text-white">
               Get Started Now
             </button>
           </div>
         </div>
       </div>
-      <div className="py-[4rem]">
+      <div className=" py-[2rem]  px-[8rem] w-full flex justify-center items-center ">
+        <div className="flex gap-[8rem]  w-[80%] ">
+          <div className="flex flex-col gap-[1.5rem] pt-[8rem]">
+            <h2 className="font-cabin uppercase font-medium text-my-black-300 text-[0.92rem] tracking-[0.3em]">
+              Why SmartMenu
+            </h2>
+            <p className="text-[2rem] text-gun-powder-950 font-[600]">
+              Smart and Eco-friendly
+            </p>
+            <p>
+              Its a user-friendly self-service ordering software designed to
+              enhance the dining experience for both customers and restaurants.
+            </p>
+            <p>
+              Reduce your costs, increase your efficiency, save the planet - economy - sustainable - no need to print/laminate your menu every menu change. We are economically responsible.
+            </p>
+            <button className="border border-my-black-950 bg-my-black-950 rounded-3xl w-[11rem] py-3 mt-[3.2rem] text-white">
+              Get Started Now
+            </button>
+          </div>
+          <img src={smartDevice} className="w-[40%]" />
+        </div>
+      </div>
+      <ViewmoreUI tag="About us" body="Learn more about what we do" bgColor="bg-[#ffffff]"/>
+      <hr className="border w-[70%] mx-auto my-0 border-[#f3f3f3]"></hr>
+      <div className="pt-[6rem]  ">
         <div className="pb-[4rem]">
           <h2 className="text-[2.5rem] text-center text-gun-powder-950 font-[600]">
             Our Solution
@@ -502,7 +528,9 @@ const Home = () => {
         </div>
       </div>
       <div className=" h-screen flex flex-col bg-my-black-10">
-        <h2 className="text-center py-[5rem] text-[1.7rem] text-my-black-950  font-light">What we Offer</h2>
+        <h2 className="text-center py-[5rem] text-[1.7rem] text-my-black-950  font-light">
+          What we Offer
+        </h2>
         <div className="grid grid-cols-4 px-[10vw] flex-1 gap-3">
           {offerArr.map((item: OfferI, i: number) => (
             <div className="rounded-2xl relative group flex flex-col items-center pt-[30%] gap-[2rem] hover:bg-my-black-950  cursor-pointer transition-[background-color] duration-300 ease-out ">
@@ -525,7 +553,11 @@ const Home = () => {
           ))}
         </div>
       </div>
-      <ViewmoreUI tag="Enhance your service" body="Learn more about our features"/>
+      <ViewmoreUI
+        tag="Enhance your service"
+        body="Learn more about our features"
+        bgColor="bg-[#f9f9f9]"
+      />
 
       <div className="h-screen">
         <h2>How to get started</h2>
