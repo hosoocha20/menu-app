@@ -186,7 +186,7 @@ const Home = () => {
       <ViewmoreUI
         tag="About us"
         body="Learn more about what we do"
-        bgColor="bg-[#ffffff]"
+        className="bg-[#ffffff]"
       />
       <hr className="border w-[70%] mx-auto my-0 border-[#f3f3f3]"></hr>
       <div className="pt-[6rem]  ">
@@ -573,7 +573,7 @@ const Home = () => {
       <ViewmoreUI
         tag="Enhance your service"
         body="Learn more about our features"
-        bgColor="bg-[#f9f9f9]"
+        className="bg-[#f9f9f9]"
       />
 
       <div className=" px-[5rem] py-[3rem] flex justify-center items-center gap-[5rem]">
@@ -620,6 +620,10 @@ const Home = () => {
         <button className="border border-my-black-950 bg-my-black-950 rounded-3xl w-[11rem] py-3  text-white">
               Get Started Now
         </button>
+      </div>
+      <div className="flex w-full">
+          <ViewmoreUI tag="Get in touch" body="Tell us how we can help"  className="flex-1 bg-white border-r border-my-black-80"/>
+          <ViewmoreUI tag="Service" body="Learn more about our features"  className="flex-1 bg-white"/>
       </div>
     </div>
   );
