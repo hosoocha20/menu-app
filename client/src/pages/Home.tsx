@@ -7,6 +7,7 @@ import easySVG from "../assets/easy.svg";
 import mealSVG from "../assets/family-meal-29.svg";
 import smartMeal from "../assets/family-meal-1.svg";
 import smartDevice from "../assets/smartDevice2.svg";
+import startSVG from "../assets/start1.svg";
 import qrSVG from "../assets/qr-code-64.svg";
 import qrCodePNG from "../assets/qr-code-128.png";
 import qrIconSVG from "../assets/qr-icon2.svg";
@@ -19,6 +20,9 @@ import { VscQuestion } from "react-icons/vsc";
 import { MdHomeFilled } from "react-icons/md";
 import { TbClipboardText } from "react-icons/tb";
 import { PiShoppingCartBold } from "react-icons/pi";
+import { PiDevicesLight } from "react-icons/pi";
+import { PiNotebookLight } from "react-icons/pi";
+import { MdFoodBank } from "react-icons/md";
 
 //SVG Components
 import {
@@ -76,7 +80,7 @@ const Home = () => {
     { svg: "menuf", heading: "Change your Menu at Anytime" },
     { svg: "brushf", heading: "Design your Menu" },
     { svg: "customizef", heading: "Customize Features" },
-    { svg: "controlf", heading: "Be in Control" },
+    { svg: "controlf", heading: "Manage your Orders" },
     { svg: "posf", heading: "Self PoS" },
     { svg: "adminf", heading: "Employee PoS" },
   ];
@@ -166,11 +170,11 @@ const Home = () => {
               Reduce costs, boost efficiency, and embrace sustainability – all
               with SmartMenu. Our innovative digital menu system eliminates the
               need for printing and laminating, saving you money and minimizing
-              environmental impact. 
+              environmental impact.
             </p>
             <p>
-            Say goodbye to outdated menus and hello to a
-            more responsible and efficient way to manage your restaurant.
+              Say goodbye to outdated menus and hello to a more responsible and
+              efficient way to manage your restaurant.
             </p>
             <button className="border border-my-black-950 bg-my-black-950 rounded-3xl w-[11rem] py-3 mt-[3.2rem] text-white">
               Get Started Now
@@ -187,7 +191,8 @@ const Home = () => {
       <hr className="border w-[70%] mx-auto my-0 border-[#f3f3f3]"></hr>
       <div className="pt-[6rem]  ">
         <div className="pb-[4rem]">
-          <h2 className="text-[2.5rem] text-center text-gun-powder-950 font-[600]">
+          <h2 className="font-cabin  text-center uppercase font-medium text-my-mango-600 text-[0.92rem] tracking-[0.3em] py-[1rem]">
+            {" "}
             Our Solution
           </h2>
           <p className="text-center">We offer two convenient ways to order:</p>
@@ -571,8 +576,50 @@ const Home = () => {
         bgColor="bg-[#f9f9f9]"
       />
 
-      <div className="h-screen">
-        <h2>How to get started</h2>
+      <div className=" px-[5rem] py-[3rem] flex justify-center items-center gap-[5rem]">
+        <img src={startSVG} className="w-[35%]" />
+        <div className="flex flex-col w-[500px] gap-[1.5rem]">
+          <h2 className="font-cabin uppercase font-medium text-my-black-900 text-[0.92rem] tracking-[0.3em] ">
+            How it works
+          </h2>
+          <div className="grid grid-cols-[auto_1fr] text-[1.8rem] gap-x-[2rem] gap-y-[1rem] bg-transparent items-center relative">
+            <div className="absolute top-0 left-6 w-[2px] h-full bg-[linear-gradient(rgba(255,255,255,0),#ffc466_25%,rgba(252,151,117,1)_45%,#ffc466_85%,rgba(255,255,255,0))] z-[-1]"></div>
+            <div className=" mt-1 rounded-full p-[2px] w-max  text-center  bg-[rgb(255,196,102)] bg-[linear-gradient(90deg,rgba(255,196,102,1)_3%,rgba(252,151,117,1)_31%,rgba(252,155,116,1)_78%,rgba(255,196,102,1)_98%)]   ">
+              <div className="w-full   rounded-full p-2 text-white">
+              <PiDevicesLight />
+              </div>
+            </div>
+            <div className="text-[0.9rem] py-[1rem]">
+              <h5 className="text-[0.97rem] font-medium text-my-black-950 py-2">Create your Account</h5>
+              <p>Get started with SmartMenu in seconds with our free and easy signup process.</p>
+            </div>
+            <div className="  rounded-full p-[2px] w-max  text-center  bg-[rgb(255,196,102)] bg-[linear-gradient(90deg,rgba(255,196,102,1)_3%,rgba(252,151,117,1)_31%,rgba(252,155,116,1)_78%,rgba(255,196,102,1)_98%)]   ">
+              <div className="w-full bg-white  rounded-full p-2 text-my-mango-600">
+                <PiNotebookLight />
+              </div>
+            </div>
+            <div className="text-[0.9rem] pb-[1rem]">
+              <h5 className="text-[0.97rem] font-medium text-my-black-950 py-2">Build Your Digital Menu</h5>
+              <p> Choose from our designed templates or create your own. Add menu items, photos and details.</p>
+            </div>
+            <div className="  rounded-full p-[2px] w-max  text-center  bg-[rgb(255,196,102)] bg-[linear-gradient(90deg,rgba(255,196,102,1)_3%,rgba(252,151,117,1)_31%,rgba(252,155,116,1)_78%,rgba(255,196,102,1)_98%)]   ">
+              <div className="w-full bg-white  rounded-full p-2 text-my-mango-500">
+              <MdFoodBank />
+              </div>
+            </div>
+            <div className="text-[0.9rem] pb-[1rem]">
+              <h5 className="text-[0.97rem] font-medium text-my-black-950 py-2">Transform Your Restaurant</h5>
+              <p>Customize your QR code and publish your digital menu to your restaurant's SmartMenu Platform.</p>
+              <p className="mt-1">Use your QR code on your tables, windows and others so customers can easily scan the QR code to view your menu.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className=" w-full py-[6rem] px-[5rem] mx-auto my-0  bg-my-black-10 bg-[url('./assets/mesh-bg-3.svg')] bg-no-repeat bg-cover bg-center rounded-xl flex flex-col items-center gap-[2rem]">
+        <p className="text-[2rem] font-cabin ">SmartMenu, <span className="font-inter">Your Smart Choice for a Modern Restaurant</span></p>
+        <button className="border border-my-black-950 bg-my-black-950 rounded-3xl w-[11rem] py-3  text-white">
+              Get Started Now
+        </button>
       </div>
     </div>
   );
