@@ -143,7 +143,7 @@ const Home = () => {
               enhance the dining experience for both customers and restaurants.
             </p>
             <p>
-              With MenuNow, customers can effortlessly browse menus, customize
+              With SmartMenu, customers can effortlessly browse menus, customize
               orders, and complete payments without the need for waitstaff
               intervention.
             </p>
@@ -163,13 +163,14 @@ const Home = () => {
               Smart and Eco-friendly
             </p>
             <p>
-              Its a user-friendly self-service ordering software designed to
-              enhance the dining experience for both customers and restaurants.
+              Reduce costs, boost efficiency, and embrace sustainability – all
+              with SmartMenu. Our innovative digital menu system eliminates the
+              need for printing and laminating, saving you money and minimizing
+              environmental impact. 
             </p>
             <p>
-              Reduce your costs, increase your efficiency, save the planet -
-              economy - sustainable - no need to print/laminate your menu every
-              menu change. We are economically responsible.
+            Say goodbye to outdated menus and hello to a
+            more responsible and efficient way to manage your restaurant.
             </p>
             <button className="border border-my-black-950 bg-my-black-950 rounded-3xl w-[11rem] py-3 mt-[3.2rem] text-white">
               Get Started Now
@@ -367,8 +368,9 @@ const Home = () => {
               </div>
             </div>
             <div className=" w-[600px] h-max ml-[10vw] mt-[5vh] flex flex-col gap-[1rem]">
+              <p className="text-my-black-300">01</p>
               <h3 className="font-cabin text-[2.5rem] font-[600] text-gun-powder-950">
-                01 QR Code
+                QR Code
               </h3>
               <p>
                 Scan the QR code at your table to access our mobile-optimized
@@ -380,7 +382,7 @@ const Home = () => {
                 table.
               </p>
               <div ref={qrAniRef} className=" w-max mt-[2.5rem]">
-                <LinkUI />
+                <LinkUI name="Learn More" />
               </div>
             </div>
           </div>
@@ -466,8 +468,9 @@ const Home = () => {
                 <div className="w-[150px] h-[100px] bg-[#1f1f1f] mt-[1rem] rounded-[1.5rem] kiosk-stand"></div>
               </div>
               <div className=" w-[600px] h-max ml-[10vw] mt-[5vh] flex flex-col gap-[1rem]">
+                <p className="text-my-black-300">02</p>
                 <h3 className="font-cabin text-[2.5rem] font-[600] text-gun-powder-950">
-                  02 Kiosk
+                  Kiosk
                 </h3>
                 <p>
                   Enjoy the ease of ordering directly from a device placed at
@@ -477,9 +480,9 @@ const Home = () => {
                   Allow your customers to order directly from their table with a
                   tap.
                 </p>
-                <button className="bg-my-mango-500 rounded-[1.5rem] w-max py-3 px-6 text-white text-[0.9rem] mt-[2.5rem]">
-                  Learn more
-                </button>
+                <div className=" w-max mt-[2.5rem]">
+                  <LinkUI name="Learn More" />
+                </div>
               </div>
             </div>
           </div>
@@ -532,14 +535,13 @@ const Home = () => {
         </div>
       </div>
       <div className=" h-screen flex flex-col bg-my-black-10">
-
         <div className="py-[5rem] text-center w-full flex flex-col gap-[1rem]">
-        <h2 className="font-cabin uppercase font-medium text-my-black-300 text-[0.92rem] tracking-[0.3em] ">
-          Our Features
-        </h2>
-        <p className=" text-[1.7rem] text-my-black-950  font-light ">
-          What we Offer
-        </p>
+          <h2 className="font-cabin uppercase font-medium text-my-black-300 text-[0.92rem] tracking-[0.3em] ">
+            Our Features
+          </h2>
+          <p className=" text-[1.7rem] text-my-black-950  font-light ">
+            What we Offer
+          </p>
         </div>
         <div className="grid grid-cols-4 px-[10vw] flex-1 gap-3">
           {offerArr.map((item: OfferI, i: number) => (
