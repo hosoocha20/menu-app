@@ -9,14 +9,14 @@ const Footer = () => {
         <p className="font-cabin-condensed text-[1.2rem]">SmartMenu</p>
         <div className=" flex gap-[2rem]">
           <div className="flex flex-col gap-1">
-            <h5 className="font-cabin uppercase font-medium text-my-black-300 text-[0.87rem] tracking-[0.3em]">
+            <h5 className="font-cabin uppercase font-medium text-my-black-300 text-[0.82rem] tracking-[0.3em]">
               About
             </h5>
             <LinkUI name="About Us" />
             <LinkUI name="Contact" />
           </div>
           <div className="flex flex-col gap-1">
-            <h5 className="font-cabin uppercase font-medium text-my-black-300 text-[0.87rem] tracking-[0.3em]">
+            <h5 className="font-cabin uppercase font-medium text-my-black-300 text-[0.82rem] tracking-[0.3em]">
               Services
             </h5>
 
@@ -25,7 +25,7 @@ const Footer = () => {
             <LinkUI name="Features" />
           </div>
           <div className="flex flex-col gap-1">
-            <h5 className="font-cabin uppercase font-medium text-my-black-300 text-[0.87rem] tracking-[0.3em]">
+            <h5 className="font-cabin uppercase font-medium text-my-black-300 text-[0.82rem] tracking-[0.3em]">
               Other
             </h5>
             <LinkUI name="Attributions" />

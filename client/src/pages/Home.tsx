@@ -44,6 +44,7 @@ import {
 } from "framer-motion";
 import ViewmoreUI from "../ui/ViewMoreUI";
 import LinkUI from "../ui/LinkUI";
+import RevealAni from "../ui/RevealAni";
 
 interface OfferI {
   svg: string;
@@ -132,56 +133,60 @@ const Home = () => {
         <img src={orderSVG} className="w-[35%]" />
       </div>
       <div className=" py-[2rem] px-[8rem] w-full flex justify-center items-center ">
-        <div className="flex gap-[8rem]  w-[80%]  ">
-          <img src={smartMeal} className="w-[45%]" />
-          <div className="flex flex-col gap-[1.5rem] pt-[8rem]">
-            <h2 className="font-cabin uppercase font-medium text-my-black-300 text-[0.92rem] tracking-[0.3em]">
-              {" "}
-              What is SmartMenu
-            </h2>
-            <p className="text-[2rem] text-gun-powder-950 font-[600]">
-              SmartMenu offers a smart way to dine
-            </p>
-            <p>
-              Its a user-friendly self-service ordering software designed to
-              enhance the dining experience for both customers and restaurants.
-            </p>
-            <p>
-              With SmartMenu, customers can effortlessly browse menus, customize
-              orders, and complete payments without the need for waitstaff
-              intervention.
-            </p>
-            <button className="border border-my-black-950 bg-my-black-950 rounded-3xl w-[11rem] py-3 mt-[3.2rem] text-white">
-              Get Started Now
-            </button>
+        <RevealAni className="w-[80%]" amount={0.4}>
+          <div className="flex gap-[8rem]   ">
+            <img src={smartMeal} className="w-[45%]" />
+            <div className="flex flex-col gap-[1.5rem] pt-[8rem]  w-fit">
+              <h2 className="font-cabin uppercase font-medium text-my-black-300 text-[0.92rem] tracking-[0.3em]">
+                {" "}
+                What is SmartMenu
+              </h2>
+              <p className="text-[2rem] text-gun-powder-950 font-[600] w-max ">
+                SmartMenu offers a smart way to dine
+              </p>
+              <p>
+                Its a user-friendly self-service ordering software designed to
+                enhance the dining experience for both customers and restaurants.
+              </p>
+              <p>
+                With SmartMenu, customers can effortlessly browse menus, customize
+                orders, and complete payments without the need for waitstaff
+                intervention.
+              </p>
+              <button className="border border-my-black-950 bg-my-black-950 rounded-3xl w-[11rem] py-3 mt-[3.2rem] text-white">
+                Get Started Now
+              </button>
+            </div>
           </div>
-        </div>
+        </RevealAni>
       </div>
       <div className=" py-[2rem]  px-[8rem] w-full flex justify-center items-center ">
-        <div className="flex gap-[8rem]  w-[80%] ">
-          <div className="flex flex-col gap-[1.5rem] pt-[8rem]">
-            <h2 className="font-cabin uppercase font-medium text-my-black-300 text-[0.92rem] tracking-[0.3em]">
-              Why SmartMenu
-            </h2>
-            <p className="text-[2rem] text-gun-powder-950 font-[600]">
-              Smart and Eco-friendly
-            </p>
-            <p>
-              Reduce costs, boost efficiency, and embrace sustainability – all
-              with SmartMenu. Our innovative digital menu system eliminates the
-              need for printing and laminating, saving you money and minimizing
-              environmental impact.
-            </p>
-            <p>
-              Say goodbye to outdated menus and hello to a more responsible and
-              efficient way to manage your restaurant.
-            </p>
-            <button className="border border-my-black-950 bg-my-black-950 rounded-3xl w-[11rem] py-3 mt-[3.2rem] text-white">
-              Get Started Now
-            </button>
+        <RevealAni className=" w-[80%]" amount={0.4}>
+          <div className="flex gap-[8rem]  ">
+            <div className="flex flex-col gap-[1.5rem] pt-[8rem]">
+              <h2 className="font-cabin uppercase font-medium text-my-black-300 text-[0.92rem] tracking-[0.3em]">
+                Why SmartMenu
+              </h2>
+              <p className="text-[2rem] text-gun-powder-950 font-[600]">
+                Smart and Eco-friendly
+              </p>
+              <p>
+                Reduce costs, boost efficiency, and embrace sustainability – all
+                with SmartMenu. Our innovative digital menu system eliminates the
+                need for printing and laminating, saving you money and minimizing
+                environmental impact.
+              </p>
+              <p>
+                Say goodbye to outdated menus and hello to a more responsible and
+                efficient way to manage your restaurant.
+              </p>
+              <button className="border border-my-black-950 bg-my-black-950 rounded-3xl w-[11rem] py-3 mt-[3.2rem] text-white">
+                Get Started Now
+              </button>
+            </div>
+            <img src={smartDevice} className="w-[40%]" />
           </div>
-          <img src={smartDevice} className="w-[40%]" />
-        </div>
+        </RevealAni>
       </div>
       <ViewmoreUI
         tag="About us"
