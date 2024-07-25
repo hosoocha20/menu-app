@@ -40,7 +40,8 @@ import {
   motion,
   useAnimationControls,
   useInView,
-  AnimatePresence,
+  useScroll,
+  useTransform
 } from "framer-motion";
 import ViewmoreUI from "../ui/ViewMoreUI";
 import LinkUI from "../ui/LinkUI";
@@ -55,6 +56,28 @@ const Home = () => {
   const controls = useAnimationControls();
   const qrAniRef = useRef(null);
   const qrAniIsInView = useInView(qrAniRef, { once: true });
+
+  const phoneContainerRef = useRef(null);
+  const { scrollYProgress: phScrollYProgress } = useScroll({
+    target: phoneContainerRef,
+    offset: ["start end", "end end"]
+  });
+  const elScrollYValue = useTransform(
+    phScrollYProgress,
+    [0, 1],
+    ["0", "-25%"]
+  );
+
+  const kioskContainerRef = useRef(null);
+  const { scrollYProgress: kioskScrollYProgress } = useScroll({
+    target: kioskContainerRef,
+    offset: ["start end", "end end"]
+  });
+  const kioskScrollYValue = useTransform(
+    kioskScrollYProgress ,
+    [0, 1],
+    ["0", "-40%"]
+  );
 
   const foodMenuKioskImgArr = [
     "food1.jpg",
@@ -202,13 +225,10 @@ const Home = () => {
           </h2>
           <p className="text-center">We offer two convenient ways to order:</p>
         </div>
-        <div className="h-[600px] px-[8rem] ">
+        <div ref={phoneContainerRef} className="h-[600px] px-[8rem] ">
           <div className="solution-bg-img h-full rounded-[2rem] pt-[3rem] px-[3rem]  relative flex justify-center">
-            {/* <h2 className="text-[2.5rem] text-center text-gun-powder-950 font-[600]">
-                Our Solution
-              </h2>
-              <p className="text-center">We offer two convenient ways to order:</p> */}
-            <div className="absolute top-[-60px]  h-full overflow-hidden  left-[5vw]">
+            {/* Phone */}
+            <motion.div style={{ translateY: elScrollYValue }}  className="absolute top-[15%]  h-full overflow-hidden  left-[5vw]">
               <div className="h-full w-max overflow-hidden  rounded  px-[2rem] ">
                 <div className="w-[300px] h-[550px]  rounded-[2rem] p-[0.5rem] pl-[0.7rem] bg-[#1f1f1f] iphone-rim">
                   <motion.div
@@ -376,25 +396,27 @@ const Home = () => {
                   </motion.div>
                 </div>
               </div>
-            </div>
-            <div className=" w-[600px] h-max ml-[10vw] mt-[5vh] flex flex-col gap-[1rem]">
-              <p className="text-my-black-300">01</p>
-              <h3 className="font-cabin text-[2.5rem] font-[600] text-gun-powder-950">
-                QR Code
-              </h3>
-              <p>
-                Scan the QR code at your table to access our mobile-optimized
-                ordering platform using a device.
-              </p>
-              <p>
-                Allow your customers to use their own device to scan the QR code
-                to connect to the digitlized menu designated to the specific
-                table.
-              </p>
-              <div ref={qrAniRef} className=" w-max mt-[2.5rem]">
-                <LinkUI name="Learn More" />
+            </motion.div>
+            <RevealAni className=" w-[600px] ml-[10vw] mt-[5vh] h-fit">
+              <div className=" h-max  flex flex-col gap-[1rem] ">
+                <p className="text-my-black-300">01</p>
+                <h3 className="font-cabin text-[2.5rem] font-[600] text-gun-powder-950">
+                  QR Code
+                </h3>
+                <p>
+                  Scan the QR code at your table to access our mobile-optimized
+                  ordering platform using a device.
+                </p>
+                <p>
+                  Allow your customers to use their own device to scan the QR code
+                  to connect to the digitlized menu designated to the specific
+                  table.
+                </p>
+                <div ref={qrAniRef} className=" w-max mt-[2.5rem]">
+                  <LinkUI name="Learn More" />
+                </div>
               </div>
-            </div>
+            </RevealAni>
           </div>
           {/* <ul className="list-disc list-inside">
               <li>
@@ -407,14 +429,14 @@ const Home = () => {
               </li>
             </ul> */}
         </div>
-        <div className="h-[600px] px-[8rem] mt-[4rem] ">
+        <div ref={kioskContainerRef} className="h-[600px] px-[8rem] mt-[4rem] ">
           <div className="solution-bg-img h-full rounded-[2rem] pt-[3rem] px-[3rem]">
             {/* <h2 className="text-[2.5rem] text-center text-gun-powder-950 font-[600]">
                 Our Solution
               </h2>
               <p className="text-center">We offer two convenient ways to order:</p> */}
             <div className=" h-full  relative">
-              <div className="absolute top-[-200px] right-[5vw]  w-max overflow-hidden  rounded  px-[2rem] flex flex-col items-center">
+              <motion.div  style={{ translateY: kioskScrollYValue }} className="absolute top-[-50px] right-[5vw]  w-max overflow-hidden  rounded  px-[2rem] flex flex-col items-center">
                 <div className=" w-[500px] h-[320px]  rounded-[1.2rem] p-[0.6rem] pr-[0.8rem] bg-[#1f1f1f] kiosk-rim">
                   <div className="flex flex-col w-full h-full rounded-[0.7rem] tablet-kiosk bg-gun-powder-600 overflow-hidden">
                     <div className="py-[8px] bg-[#151515] text-[0.35rem] text-white text-center">
@@ -476,24 +498,26 @@ const Home = () => {
                   </div>
                 </div>
                 <div className="w-[150px] h-[100px] bg-[#1f1f1f] mt-[1rem] rounded-[1.5rem] kiosk-stand"></div>
-              </div>
-              <div className=" w-[600px] h-max ml-[10vw] mt-[5vh] flex flex-col gap-[1rem]">
-                <p className="text-my-black-300">02</p>
-                <h3 className="font-cabin text-[2.5rem] font-[600] text-gun-powder-950">
-                  Kiosk
-                </h3>
-                <p>
-                  Enjoy the ease of ordering directly from a device placed at
-                  each table.
-                </p>
-                <p>
-                  Allow your customers to order directly from their table with a
-                  tap.
-                </p>
-                <div className=" w-max mt-[2.5rem]">
-                  <LinkUI name="Learn More" />
+              </motion.div>
+              <RevealAni className=" w-[600px] ml-[10vw] mt-[5vh] h-fit">
+                <div className=" h-max  flex flex-col gap-[1rem]">
+                  <p className="text-my-black-300">02</p>
+                  <h3 className="font-cabin text-[2.5rem] font-[600] text-gun-powder-950">
+                    Kiosk
+                  </h3>
+                  <p>
+                    Enjoy the ease of ordering directly from a device placed at
+                    each table.
+                  </p>
+                  <p>
+                    Allow your customers to order directly from their table with a
+                    tap.
+                  </p>
+                  <div className=" w-max mt-[2.5rem]">
+                    <LinkUI name="Learn More" />
+                  </div>
                 </div>
-              </div>
+              </RevealAni>
             </div>
           </div>
           {/* <ul className="list-disc list-inside">
