@@ -46,6 +46,7 @@ import {
 import ViewmoreUI from "../ui/ViewMoreUI";
 import LinkUI from "../ui/LinkUI";
 import RevealAni from "../ui/RevealAni";
+import TextReveal from "../ui/TextReveal";
 
 interface OfferI {
   svg: string;
@@ -489,7 +490,7 @@ const Home = () => {
                             <span>Total</span>
                             <span>$0.00</span>
                           </div>
-                          <div className="text-[0.5rem] text-white text-center w-full bg-my-orange-400 border py-[7px]">
+                          <div className="text-[0.5rem] text-white text-center w-full bg-my-orange-400  py-[7px]">
                             Place Order
                           </div>
                         </div>
@@ -534,10 +535,14 @@ const Home = () => {
       </div>
       <div className="h-[100vh] flex flex-col justify-center items-center">
         <div className="flex flex-col  w-max py-[3rem] gap-[3rem]">
-          <h2 className="text-[2.9rem] text-gun-powder-950 w-[50vw]  leading-tight  ">
-            Enhance your customer experience while boosting efficiency with our
-            digitalized table ordering solution.
-          </h2>
+          <TextReveal className="relative w-full overflow-hidden">
+            
+              <h2 className="text-[2.9rem] text-gun-powder-950 w-[50vw]  leading-tight  ">
+                Enhance your customer experience while boosting efficiency with our
+                digitalized table ordering solution.
+              </h2>
+            
+          </TextReveal>
           <div className="flex  justify-center gap-[1rem] text-gun-powder-950 w-max">
             <div className="flex flex-col w-[22rem] h-[24rem]   bg-[url('assets/mesh-gradientOR.png')] bg-cover bg-center px-7 py-5 border rounded-2xl my-bg-shadow">
               <img src={timeSVG} className="w-[6rem]  " />
