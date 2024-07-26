@@ -41,7 +41,8 @@ import {
   useAnimationControls,
   useInView,
   useScroll,
-  useTransform
+  useTransform,
+  Variants,
 } from "framer-motion";
 import ViewmoreUI from "../ui/ViewMoreUI";
 import LinkUI from "../ui/LinkUI";
@@ -61,24 +62,33 @@ const Home = () => {
   const phoneContainerRef = useRef(null);
   const { scrollYProgress: phScrollYProgress } = useScroll({
     target: phoneContainerRef,
-    offset: ["start end", "end end"]
+    offset: ["start end", "end end"],
   });
-  const elScrollYValue = useTransform(
-    phScrollYProgress,
-    [0, 1],
-    ["0", "-25%"]
-  );
+  const elScrollYValue = useTransform(phScrollYProgress, [0, 1], ["0", "-25%"]);
 
   const kioskContainerRef = useRef(null);
   const { scrollYProgress: kioskScrollYProgress } = useScroll({
     target: kioskContainerRef,
-    offset: ["start end", "end end"]
+    offset: ["start end", "end end"],
   });
   const kioskScrollYValue = useTransform(
-    kioskScrollYProgress ,
+    kioskScrollYProgress,
     [0, 1],
     ["0", "-40%"]
   );
+
+  //Animation Variants
+  const fadeInUpAni: Variants = {
+    hidden: {
+      opacity: 0,
+      y: 5
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {duration: 0.6, staggerChildren: 0.12, ease: "easeOut"}
+    }
+  }
 
   const foodMenuKioskImgArr = [
     "food1.jpg",
@@ -157,32 +167,55 @@ const Home = () => {
         <img src={orderSVG} className="w-[35%]" />
       </div>
       <div className=" py-[2rem] px-[8rem] w-full flex justify-center items-center ">
-        <RevealAni className="w-[80%]" amount={0.4}>
-          <div className="flex gap-[8rem]   ">
-            <img src={smartMeal} className="w-[45%]" />
-            <div className="flex flex-col gap-[1.5rem] pt-[8rem]  w-fit">
-              <h2 className="font-cabin uppercase font-medium text-my-black-300 text-[0.92rem] tracking-[0.3em]">
-                {" "}
-                What is SmartMenu
-              </h2>
-              <p className="text-[2rem] text-gun-powder-950 font-[600] w-max ">
-                SmartMenu offers a smart way to dine
-              </p>
-              <p>
-                Its a user-friendly self-service ordering software designed to
-                enhance the dining experience for both customers and restaurants.
-              </p>
-              <p>
-                With SmartMenu, customers can effortlessly browse menus, customize
-                orders, and complete payments without the need for waitstaff
-                intervention.
-              </p>
-              <button className="border border-my-black-950 bg-my-black-950 rounded-3xl w-[11rem] py-3 mt-[3.2rem] text-white">
-                Get Started Now
-              </button>
-            </div>
-          </div>
-        </RevealAni>
+        {/* <RevealAni className="w-[80%]" amount={0.4}> */}
+        <div className="flex gap-[8rem]   ">
+          <img src={smartMeal} className="w-[45%]" />
+          <motion.div
+            variants={fadeInUpAni}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ amount: 0.4 }}
+            
+            className="flex flex-col gap-[1.5rem] pt-[8rem]  w-fit  smooth-text-rendering "
+          >
+            <motion.h2
+              variants={fadeInUpAni}
+              
+              className="font-cabin uppercase font-medium text-my-black-300 text-[0.92rem] tracking-[0.3em] smooth-text-rendering"
+            >
+              {" "}
+              What is SmartMenu
+            </motion.h2>
+            <motion.p
+              variants={fadeInUpAni}
+              
+              className="text-[2rem] text-gun-powder-950 font-[600] w-max will-change-[transform,opacity] smooth-text-rendering"
+            >
+              SmartMenu offers a smart way to dine
+            </motion.p>
+            <motion.p
+              variants={fadeInUpAni}
+              
+              className=" will-change-transform antialiased smooth-text-rendering"
+            >
+              Its a user-friendly self-service ordering software designed to
+              enhance the dining experience for both customers and restaurants.
+            </motion.p>
+            <motion.p
+              variants={fadeInUpAni}
+           
+              className="smooth-text-rendering "
+            >
+              With SmartMenu, customers can effortlessly browse menus, customize
+              orders, and complete payments without the need for waitstaff
+              intervention.
+            </motion.p>
+            <motion.button variants={fadeInUpAni} className="border border-my-black-950 bg-my-black-950 rounded-3xl w-[11rem] py-3 mt-[3.2rem] text-white smooth-text-rendering">
+              Get Started Now
+            </motion.button>
+          </motion.div>
+        </div>
+        {/* </RevealAni> */}
       </div>
       <div className=" py-[2rem]  px-[8rem] w-full flex justify-center items-center ">
         <RevealAni className=" w-[80%]" amount={0.4}>
@@ -196,13 +229,13 @@ const Home = () => {
               </p>
               <p>
                 Reduce costs, boost efficiency, and embrace sustainability – all
-                with SmartMenu. Our innovative digital menu system eliminates the
-                need for printing and laminating, saving you money and minimizing
-                environmental impact.
+                with SmartMenu. Our innovative digital menu system eliminates
+                the need for printing and laminating, saving you money and
+                minimizing environmental impact.
               </p>
               <p>
-                Say goodbye to outdated menus and hello to a more responsible and
-                efficient way to manage your restaurant.
+                Say goodbye to outdated menus and hello to a more responsible
+                and efficient way to manage your restaurant.
               </p>
               <button className="border border-my-black-950 bg-my-black-950 rounded-3xl w-[11rem] py-3 mt-[3.2rem] text-white">
                 Get Started Now
@@ -229,7 +262,10 @@ const Home = () => {
         <div ref={phoneContainerRef} className="h-[600px] px-[8rem] ">
           <div className="solution-bg-img h-full rounded-[2rem] pt-[3rem] px-[3rem]  relative flex justify-center">
             {/* Phone */}
-            <motion.div style={{ translateY: elScrollYValue }}  className="absolute top-[15%]  h-full overflow-hidden  left-[5vw]">
+            <motion.div
+              style={{ translateY: elScrollYValue }}
+              className="absolute top-[15%]  h-full overflow-hidden  left-[5vw]"
+            >
               <div className="h-full w-max overflow-hidden  rounded  px-[2rem] ">
                 <div className="w-[300px] h-[550px]  rounded-[2rem] p-[0.5rem] pl-[0.7rem] bg-[#1f1f1f] iphone-rim">
                   <motion.div
@@ -409,9 +445,9 @@ const Home = () => {
                   ordering platform using a device.
                 </p>
                 <p>
-                  Allow your customers to use their own device to scan the QR code
-                  to connect to the digitlized menu designated to the specific
-                  table.
+                  Allow your customers to use their own device to scan the QR
+                  code to connect to the digitlized menu designated to the
+                  specific table.
                 </p>
                 <div ref={qrAniRef} className=" w-max mt-[2.5rem]">
                   <LinkUI name="Learn More" />
@@ -437,7 +473,10 @@ const Home = () => {
               </h2>
               <p className="text-center">We offer two convenient ways to order:</p> */}
             <div className=" h-full  relative">
-              <motion.div  style={{ translateY: kioskScrollYValue }} className="absolute top-[-50px] right-[5vw]  w-max overflow-hidden  rounded  px-[2rem] flex flex-col items-center">
+              <motion.div
+                style={{ translateY: kioskScrollYValue }}
+                className="absolute top-[-50px] right-[5vw]  w-max overflow-hidden  rounded  px-[2rem] flex flex-col items-center"
+              >
                 <div className=" w-[500px] h-[320px]  rounded-[1.2rem] p-[0.6rem] pr-[0.8rem] bg-[#1f1f1f] kiosk-rim">
                   <div className="flex flex-col w-full h-full rounded-[0.7rem] tablet-kiosk bg-gun-powder-600 overflow-hidden">
                     <div className="py-[8px] bg-[#151515] text-[0.35rem] text-white text-center">
@@ -511,8 +550,8 @@ const Home = () => {
                     each table.
                   </p>
                   <p>
-                    Allow your customers to order directly from their table with a
-                    tap.
+                    Allow your customers to order directly from their table with
+                    a tap.
                   </p>
                   <div className=" w-max mt-[2.5rem]">
                     <LinkUI name="Learn More" />
@@ -536,12 +575,10 @@ const Home = () => {
       <div className="h-[100vh] flex flex-col justify-center items-center">
         <div className="flex flex-col  w-max py-[3rem] gap-[3rem]">
           <TextReveal className="relative w-full overflow-hidden">
-            
-              <h2 className="text-[2.9rem] text-gun-powder-950 w-[50vw]  leading-tight  ">
-                Enhance your customer experience while boosting efficiency with our
-                digitalized table ordering solution.
-              </h2>
-            
+            <h2 className="text-[2.9rem] text-gun-powder-950 w-[50vw]  leading-tight  ">
+              Enhance your customer experience while boosting efficiency with
+              our digitalized table ordering solution.
+            </h2>
           </TextReveal>
           <div className="flex  justify-center gap-[1rem] text-gun-powder-950 w-max">
             <div className="flex flex-col w-[22rem] h-[24rem]   bg-[url('assets/mesh-gradientOR.png')] bg-cover bg-center px-7 py-5 border rounded-2xl my-bg-shadow">
@@ -620,12 +657,17 @@ const Home = () => {
             <div className="absolute top-0 left-6 w-[2px] h-full bg-[linear-gradient(rgba(255,255,255,0),#ffc466_25%,rgba(252,151,117,1)_45%,#ffc466_85%,rgba(255,255,255,0))] z-[-1]"></div>
             <div className=" mt-1 rounded-full p-[2px] w-max  text-center  bg-[rgb(255,196,102)] bg-[linear-gradient(90deg,rgba(255,196,102,1)_3%,rgba(252,151,117,1)_31%,rgba(252,155,116,1)_78%,rgba(255,196,102,1)_98%)]   ">
               <div className="w-full   rounded-full p-2 text-white">
-              <PiDevicesLight />
+                <PiDevicesLight />
               </div>
             </div>
             <div className="text-[0.9rem] py-[1rem]">
-              <h5 className="text-[0.97rem] font-medium text-my-black-950 py-2">Create your Account</h5>
-              <p>Get started with SmartMenu in seconds with our free and easy signup process.</p>
+              <h5 className="text-[0.97rem] font-medium text-my-black-950 py-2">
+                Create your Account
+              </h5>
+              <p>
+                Get started with SmartMenu in seconds with our free and easy
+                signup process.
+              </p>
             </div>
             <div className="  rounded-full p-[2px] w-max  text-center  bg-[rgb(255,196,102)] bg-[linear-gradient(90deg,rgba(255,196,102,1)_3%,rgba(252,151,117,1)_31%,rgba(252,155,116,1)_78%,rgba(255,196,102,1)_98%)]   ">
               <div className="w-full bg-white  rounded-full p-2 text-my-mango-600">
@@ -633,31 +675,58 @@ const Home = () => {
               </div>
             </div>
             <div className="text-[0.9rem] pb-[1rem]">
-              <h5 className="text-[0.97rem] font-medium text-my-black-950 py-2">Build Your Digital Menu</h5>
-              <p> Choose from our designed templates or create your own. Add menu items, photos and details.</p>
+              <h5 className="text-[0.97rem] font-medium text-my-black-950 py-2">
+                Build Your Digital Menu
+              </h5>
+              <p>
+                {" "}
+                Choose from our designed templates or create your own. Add menu
+                items, photos and details.
+              </p>
             </div>
             <div className="  rounded-full p-[2px] w-max  text-center  bg-[rgb(255,196,102)] bg-[linear-gradient(90deg,rgba(255,196,102,1)_3%,rgba(252,151,117,1)_31%,rgba(252,155,116,1)_78%,rgba(255,196,102,1)_98%)]   ">
               <div className="w-full bg-white  rounded-full p-2 text-my-mango-500">
-              <MdFoodBank />
+                <MdFoodBank />
               </div>
             </div>
             <div className="text-[0.9rem] pb-[1rem]">
-              <h5 className="text-[0.97rem] font-medium text-my-black-950 py-2">Transform Your Restaurant</h5>
-              <p>Customize your QR code and publish your digital menu to your restaurant's SmartMenu Platform.</p>
-              <p className="mt-1">Use your QR code on your tables, windows and others so customers can easily scan the QR code to view your menu.</p>
+              <h5 className="text-[0.97rem] font-medium text-my-black-950 py-2">
+                Transform Your Restaurant
+              </h5>
+              <p>
+                Customize your QR code and publish your digital menu to your
+                restaurant's SmartMenu Platform.
+              </p>
+              <p className="mt-1">
+                Use your QR code on your tables, windows and others so customers
+                can easily scan the QR code to view your menu.
+              </p>
             </div>
           </div>
         </div>
       </div>
       <div className=" w-full py-[6rem] px-[5rem] mx-auto my-0  bg-my-black-10 bg-[url('./assets/mesh-bg-3.svg')] bg-no-repeat bg-cover bg-center rounded-xl flex flex-col items-center gap-[2rem]">
-        <p className="text-[2rem] font-cabin ">SmartMenu, <span className="font-inter">Your Smart Choice for a Modern Restaurant</span></p>
+        <p className="text-[2rem] font-cabin ">
+          SmartMenu,{" "}
+          <span className="font-inter">
+            Your Smart Choice for a Modern Restaurant
+          </span>
+        </p>
         <button className="border border-my-black-950 bg-my-black-950 rounded-3xl w-[11rem] py-3  text-white">
-              Get Started Now
+          Get Started Now
         </button>
       </div>
       <div className="flex w-full">
-          <ViewmoreUI tag="Get in touch" body="Tell us how we can help"  className="flex-1 bg-white border-r border-my-black-80"/>
-          <ViewmoreUI tag="Service" body="Learn more about our features"  className="flex-1 bg-white"/>
+        <ViewmoreUI
+          tag="Get in touch"
+          body="Tell us how we can help"
+          className="flex-1 bg-white border-r border-my-black-80"
+        />
+        <ViewmoreUI
+          tag="Service"
+          body="Learn more about our features"
+          className="flex-1 bg-white"
+        />
       </div>
     </div>
   );
