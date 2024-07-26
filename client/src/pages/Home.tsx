@@ -48,6 +48,7 @@ import ViewmoreUI from "../ui/ViewMoreUI";
 import LinkUI from "../ui/LinkUI";
 import RevealAni from "../ui/RevealAni";
 import TextReveal from "../ui/TextReveal";
+import FadeInRight from "../ui/FadeInRight";
 
 interface OfferI {
   svg: string;
@@ -81,14 +82,14 @@ const Home = () => {
   const fadeInUpAni: Variants = {
     hidden: {
       opacity: 0,
-      y: 5
+      y: 5,
     },
     visible: {
       opacity: 1,
       y: 0,
-      transition: {duration: 0.6, staggerChildren: 0.12, ease: "easeOut"}
-    }
-  }
+      transition: { duration: 0.6, staggerChildren: 0.12, ease: "easeOut" },
+    },
+  };
 
   const foodMenuKioskImgArr = [
     "food1.jpg",
@@ -168,19 +169,17 @@ const Home = () => {
       </div>
       <div className=" py-[2rem] px-[8rem] w-full flex justify-center items-center ">
         {/* <RevealAni className="w-[80%]" amount={0.4}> */}
-        <div className="flex gap-[8rem]   ">
+        <div className="flex gap-[8rem]  w-[80%] ">
           <img src={smartMeal} className="w-[45%]" />
           <motion.div
             variants={fadeInUpAni}
             initial="hidden"
             whileInView="visible"
             viewport={{ amount: 0.4 }}
-            
             className="flex flex-col gap-[1.5rem] pt-[8rem]  w-fit  smooth-text-rendering "
           >
             <motion.h2
               variants={fadeInUpAni}
-              
               className="font-cabin uppercase font-medium text-my-black-300 text-[0.92rem] tracking-[0.3em] smooth-text-rendering"
             >
               {" "}
@@ -188,29 +187,23 @@ const Home = () => {
             </motion.h2>
             <motion.p
               variants={fadeInUpAni}
-              
               className="text-[2rem] text-gun-powder-950 font-[600] w-max will-change-[transform,opacity] smooth-text-rendering"
             >
-              SmartMenu offers a smart way to dine
+              We offer a <span className="text-my-orange-300">smart</span> way to dine
             </motion.p>
-            <motion.p
-              variants={fadeInUpAni}
-              
-              className=" will-change-transform antialiased smooth-text-rendering"
-            >
+            <motion.p variants={fadeInUpAni} className="smooth-text-rendering">
               Its a user-friendly self-service ordering software designed to
               enhance the dining experience for both customers and restaurants.
             </motion.p>
-            <motion.p
-              variants={fadeInUpAni}
-           
-              className="smooth-text-rendering "
-            >
+            <motion.p variants={fadeInUpAni} className="smooth-text-rendering ">
               With SmartMenu, customers can effortlessly browse menus, customize
               orders, and complete payments without the need for waitstaff
               intervention.
             </motion.p>
-            <motion.button variants={fadeInUpAni} className="border border-my-black-950 bg-my-black-950 rounded-3xl w-[11rem] py-3 mt-[3.2rem] text-white smooth-text-rendering">
+            <motion.button
+              variants={fadeInUpAni}
+              className="border border-my-black-950 bg-my-black-950 rounded-3xl w-[11rem] py-3 mt-[3.2rem] text-white smooth-text-rendering"
+            >
               Get Started Now
             </motion.button>
           </motion.div>
@@ -218,32 +211,45 @@ const Home = () => {
         {/* </RevealAni> */}
       </div>
       <div className=" py-[2rem]  px-[8rem] w-full flex justify-center items-center ">
-        <RevealAni className=" w-[80%]" amount={0.4}>
-          <div className="flex gap-[8rem]  ">
-            <div className="flex flex-col gap-[1.5rem] pt-[8rem]">
-              <h2 className="font-cabin uppercase font-medium text-my-black-300 text-[0.92rem] tracking-[0.3em]">
-                Why SmartMenu
-              </h2>
-              <p className="text-[2rem] text-gun-powder-950 font-[600]">
-                Smart and Eco-friendly
-              </p>
-              <p>
-                Reduce costs, boost efficiency, and embrace sustainability – all
-                with SmartMenu. Our innovative digital menu system eliminates
-                the need for printing and laminating, saving you money and
-                minimizing environmental impact.
-              </p>
-              <p>
-                Say goodbye to outdated menus and hello to a more responsible
-                and efficient way to manage your restaurant.
-              </p>
-              <button className="border border-my-black-950 bg-my-black-950 rounded-3xl w-[11rem] py-3 mt-[3.2rem] text-white">
-                Get Started Now
-              </button>
-            </div>
-            <img src={smartDevice} className="w-[40%]" />
-          </div>
-        </RevealAni>
+        <div className="flex gap-[8rem] w-[80%] ">
+          <motion.div
+            variants={fadeInUpAni}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ amount: 0.4 }}
+            className="flex flex-col gap-[1.5rem] pt-[8rem]"
+          >
+            <motion.h2
+              variants={fadeInUpAni}
+              className="font-cabin uppercase font-medium text-my-black-300 text-[0.92rem] tracking-[0.3em]"
+            >
+              Why SmartMenu
+            </motion.h2>
+            <motion.p
+              variants={fadeInUpAni}
+              className="text-[2rem] text-gun-powder-950 font-[600]"
+            >
+              Smart and Eco-friendly
+            </motion.p>
+            <motion.p variants={fadeInUpAni}>
+              Reduce costs, boost efficiency, and embrace sustainability – all
+              with SmartMenu. Our innovative digital menu system eliminates the
+              need for printing and laminating, saving you money and minimizing
+              environmental impact.
+            </motion.p>
+            <motion.p variants={fadeInUpAni}>
+              Say goodbye to outdated menus and hello to a more responsible and
+              efficient way to manage your restaurant.
+            </motion.p>
+            <motion.button
+              variants={fadeInUpAni}
+              className="border border-my-black-950 bg-my-black-950 rounded-3xl w-[11rem] py-3 mt-[3.2rem] text-white"
+            >
+              Get Started Now
+            </motion.button>
+          </motion.div>
+          <img src={smartDevice} className="w-[40%]" />
+        </div>
       </div>
       <ViewmoreUI
         tag="About us"
@@ -251,13 +257,18 @@ const Home = () => {
         className="bg-[#ffffff]"
       />
       <hr className="border w-[70%] mx-auto my-0 border-[#f3f3f3]"></hr>
-      <div className="pt-[6rem]  ">
-        <div className="pb-[4rem]">
-          <h2 className="font-cabin  text-center uppercase font-medium text-my-mango-600 text-[0.92rem] tracking-[0.3em] py-[1rem]">
-            {" "}
-            Our Solution
-          </h2>
-          <p className="text-center">We offer two convenient ways to order:</p>
+      <div className="pt-[5rem]  ">
+        <div className="pb-[5rem]">
+          
+          <FadeInRight once={true}>
+            <h2 className="font-cabin  text-center uppercase font-medium text-my-mango-600 text-[0.92rem] tracking-[0.3em] py-[1rem]">
+              {" "}
+              Our Solution
+            </h2>
+          </FadeInRight>
+          <RevealAni once={true}>
+            <p className="text-center">We offer two convenient ways to order:</p>
+          </RevealAni>
         </div>
         <div ref={phoneContainerRef} className="h-[600px] px-[8rem] ">
           <div className="solution-bg-img h-full rounded-[2rem] pt-[3rem] px-[3rem]  relative flex justify-center">
@@ -434,26 +445,40 @@ const Home = () => {
                 </div>
               </div>
             </motion.div>
-            <RevealAni className=" w-[600px] ml-[10vw] mt-[5vh] h-fit">
-              <div className=" h-max  flex flex-col gap-[1rem] ">
-                <p className="text-my-black-300">01</p>
-                <h3 className="font-cabin text-[2.5rem] font-[600] text-gun-powder-950">
-                  QR Code
-                </h3>
-                <p>
-                  Scan the QR code at your table to access our mobile-optimized
-                  ordering platform using a device.
-                </p>
-                <p>
-                  Allow your customers to use their own device to scan the QR
-                  code to connect to the digitlized menu designated to the
-                  specific table.
-                </p>
-                <div ref={qrAniRef} className=" w-max mt-[2.5rem]">
-                  <LinkUI name="Learn More" />
-                </div>
-              </div>
-            </RevealAni>
+
+            <motion.div
+              variants={fadeInUpAni}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ amount: 0.4, once: true }}
+              className=" h-max  flex flex-col gap-[1rem] w-[600px] ml-[10vw] mt-[5vh]"
+            >
+              <motion.p variants={fadeInUpAni} className="text-my-black-300">
+                01
+              </motion.p>
+              <motion.h3
+                variants={fadeInUpAni}
+                className="font-cabin text-[2.5rem] font-[600] text-gun-powder-950"
+              >
+                QR Code
+              </motion.h3>
+              <motion.p variants={fadeInUpAni}>
+                Scan the QR code at your table to access our mobile-optimized
+                ordering platform using a device.
+              </motion.p>
+              <motion.p variants={fadeInUpAni}>
+                Allow your customers to use their own device to scan the QR code
+                to connect to the digitlized menu designated to the specific
+                table.
+              </motion.p>
+              <motion.div
+                variants={fadeInUpAni}
+                ref={qrAniRef}
+                className=" w-max mt-[2.5rem]"
+              >
+                <LinkUI name="Learn More" />
+              </motion.div>
+            </motion.div>
           </div>
           {/* <ul className="list-disc list-inside">
               <li>
@@ -539,25 +564,30 @@ const Home = () => {
                 </div>
                 <div className="w-[150px] h-[100px] bg-[#1f1f1f] mt-[1rem] rounded-[1.5rem] kiosk-stand"></div>
               </motion.div>
-              <RevealAni className=" w-[600px] ml-[10vw] mt-[5vh] h-fit">
-                <div className=" h-max  flex flex-col gap-[1rem]">
-                  <p className="text-my-black-300">02</p>
-                  <h3 className="font-cabin text-[2.5rem] font-[600] text-gun-powder-950">
+              
+                <motion.div
+                  variants={fadeInUpAni}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ amount: 0.4, once: true }}
+                  className=" h-max  flex flex-col gap-[1rem]  w-[600px] ml-[10vw] mt-[5vh]"
+                >
+                  <motion.p variants={fadeInUpAni} className="text-my-black-300">02</motion.p>
+                  <motion.h3 variants={fadeInUpAni} className="font-cabin text-[2.5rem] font-[600] text-gun-powder-950">
                     Kiosk
-                  </h3>
-                  <p>
+                  </motion.h3>
+                  <motion.p variants={fadeInUpAni}>
                     Enjoy the ease of ordering directly from a device placed at
                     each table.
-                  </p>
-                  <p>
+                  </motion.p>
+                  <motion.p variants={fadeInUpAni}>
                     Allow your customers to order directly from their table with
                     a tap.
-                  </p>
-                  <div className=" w-max mt-[2.5rem]">
+                  </motion.p>
+                  <motion.div variants={fadeInUpAni} className=" w-max mt-[2.5rem]">
                     <LinkUI name="Learn More" />
-                  </div>
-                </div>
-              </RevealAni>
+                  </motion.div>
+                </motion.div>
             </div>
           </div>
           {/* <ul className="list-disc list-inside">

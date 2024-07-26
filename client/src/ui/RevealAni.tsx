@@ -5,6 +5,7 @@ interface Props {
     children: JSX.Element;
     className? : string;
     amount?: number;
+    once? : false | boolean;
 }
 const RevealAni = (props: Props) => {
     const ref = useRef(null);
@@ -19,10 +20,10 @@ const RevealAni = (props: Props) => {
   return (
     <div ref={ref} className={`relative overflow-hidden ${props.className}`}>
         <motion.div
-        variants={{hidden: {opacity: 0, y: 75}, visible : {opacity: 1, y: 0}}}
+        variants={{hidden: {opacity: 0, y: 5}, visible : {opacity: 1, y: 0}}}
         initial="hidden"
         whileInView="visible"
-        viewport={{amount: 0.4, once: true}}
+        viewport={{ once: props.once }}
         exit="visible"
         transition={{duration: 0.6, delay: 0.25}}
         >{props.children}</motion.div>
